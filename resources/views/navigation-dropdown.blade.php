@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Приборная панель') }}
                     </x-jet-nav-link>
                 </div>
                 @can('task_access')
@@ -26,14 +26,14 @@
                 @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                            Users
+                            {{ __('Пользователи') }}
                         </x-jet-nav-link>
                     </div>
                 @endcan
                 @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('staffs.index') }}" :active="request()->routeIs('staffs.*')">
-                            Staff
+                            {{ __('Персонал')  }}
                         </x-jet-nav-link>
                     </div>
                 @endcan
@@ -63,16 +63,16 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('Учетная запись') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Profile') }}
+                            {{ __('Профиль') }}
                         </x-jet-dropdown-link>
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                {{ __('API Tokens') }}
+                                {{ __('API Токены') }}
                             </x-jet-dropdown-link>
                         @endif
 
@@ -116,7 +116,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Выйти') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>
