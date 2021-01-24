@@ -14,7 +14,7 @@ class CreateStaffEducationTable extends Migration
     public function up()
     {
         Schema::create('staff_education', function (Blueprint $table) {
-            $table->unsignedInteger('educational_id')->default(NULL)->comment('ДБ Образовательное учреждение');
+            $table->unsignedBigInteger('educational_id')->default(NULL)->comment('ДБ Образовательное учреждение');
             $table->string('educational_institution')->default(NULL)->comment('Образовательное учреждение');
             $table->string('educational_document')->default(NULL)->comment('Документ об образовании');
             $table->string('educational_series')->default(NULL)->comment('Серия документа об образовании');

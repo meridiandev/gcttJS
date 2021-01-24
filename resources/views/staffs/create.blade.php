@@ -9,6 +9,16 @@
                         <form method="post" action="{{ route('staffs.store') }}">
                             @csrf
                             <div class="shadow overflow-hidden sm:rounded-md">
+
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
+                                    <select id="country" name="country" autocomplete="country" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                        <option>United States</option>
+                                        <option>Canada</option>
+                                        <option>Mexico</option>
+                                    </select>
+                                </div>
+
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
                                     <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"

@@ -14,7 +14,7 @@ class CreateStaffCoursesTable extends Migration
     public function up()
     {
         Schema::create('staff_courses', function (Blueprint $table) {
-            $table->unsignedInteger('course_id')->default(NULL)->comment('ID');
+            $table->unsignedBigInteger('course_id')->default(NULL)->comment('ID');
             $table->string('course_name')->default(NULL)->comment('Наименование курсов');
             $table->string('course_type')->default(NULL)->comment('Тип курсов(DropDown) (1.1.5.2.1)');
             $table->string('course_location')->default(NULL)->comment('Место проведения');

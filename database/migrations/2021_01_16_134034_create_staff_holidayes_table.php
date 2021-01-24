@@ -14,7 +14,7 @@ class CreateStaffHolidayesTable extends Migration
     public function up()
     {
         Schema::create('staff_holidayes', function (Blueprint $table) {
-            $table->unsignedInteger('holidays_id')->default(NULL)->comment('Тип отпуска');
+            $table->unsignedBigInteger('holidays_id')->default(NULL)->comment('Тип отпуска');
             $table->string('holidays_type')->default(NULL)->comment('');
             $table->binary('holidays_start')->default(NULL)->comment('Дата начала отпуска');
             $table->binary('holidays_end')->default(NULL)->comment('Дата окончания отпуска');

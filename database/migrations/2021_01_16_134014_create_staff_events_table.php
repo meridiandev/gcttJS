@@ -14,9 +14,9 @@ class CreateStaffEventsTable extends Migration
     public function up()
     {
         Schema::create('staff_events', function (Blueprint $table) {
-            $table->unsignedInteger('events_id')->default(NULL)->comment('Мероприятие id');
+            $table->unsignedBigInteger('events_id')->default(NULL)->comment('Мероприятие id');
             $table->string('events_name')->default(NULL)->comment('Название мероприятия');
-            $table->string('events_name')->default(NULL)->comment('Вид мероприятия (1.1.8.2.1.1)');
+            $table->string('events_name_show')->default(NULL)->comment('Вид мероприятия (1.1.8.2.1.1)');
             $table->string('events_level')->default(NULL)->comment('Уровень проведения (1.1.8.2.1.2)');
             $table->string('events_form')->default(NULL)->comment('Форма участия (1.1.8.2.1.3)');
             $table->string('events_status')->default(NULL)->comment('Форма участия (1.1.8.2.1.3)');

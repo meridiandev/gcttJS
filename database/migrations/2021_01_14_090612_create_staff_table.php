@@ -20,10 +20,10 @@ class CreateStaffTable extends Migration
             $table->string('first_name', 100)->unique()->comment('');
             $table->string('surname', 100)->unique()->comment('');
             $table->string('patronymic', 100)->unique()->comment('отчество');
-            $table->boolean('gender')->unsigned()->default(NULL)->comment('');
-            $table->binary('data_of_birth')->unique()->comment('');
+            $table->boolean('gender')->unsigned()->default(NULL);
+            $table->binary('data_of_birth');
             // 2
-            $table->string('home_address', 200)->unsigned()->default(NULL)->comment('Домашинй адрес');
+            $table->string('home_address', 200)->default(NULL)->comment('Домашинй адрес');
             $table->string('email_address_0', 100)->unique()->comment('Почтовый ящик');
             $table->string('email_address_1', 100)->default(NULL)->comment('Почтовый ящик дополнительный');
             $table->string('email_address_2', 100)->default(NULL)->comment('Почтовый ящик дополнительный');
@@ -32,7 +32,7 @@ class CreateStaffTable extends Migration
             $table->string('telephone_relative', 20)->comment('Телефон родственника');
             // 3
             $table->char('time_standard', 100)->comment('Табельный номер');
-            $table->char('qualification_group', 100)->unsigned()->default(NULL)->comment('Квалификационная группа');
+            $table->char('qualification_group', 100)->default(NULL)->comment('Квалификационная группа');
             $table->boolean('applicant_student')->default(NULL)->comment('Соискатель/ Аспирант (Check)');
             $table->string('start_work')->comment('Дата начала трудовой деятельности');
             $table->string('end_work')->comment('Дата окончания трудовой деятельности');

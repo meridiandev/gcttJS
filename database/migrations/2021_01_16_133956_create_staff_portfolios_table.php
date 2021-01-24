@@ -14,7 +14,7 @@ class CreateStaffPortfoliosTable extends Migration
     public function up()
     {
         Schema::create('staff_portfolios', function (Blueprint $table) {
-            $table->unsignedInteger('portfolio_id')->nullable()->comment('Портфолио id');
+            $table->unsignedBigInteger('portfolio_id')->nullable()->comment('Портфолио id');
             $table->string('portfolio_name', 300)->default(NULL)->comment('Наименование издания');
             $table->string('portfolio_years', 4)->default(NULL)->comment('Год издания');
             $table->string('portfolio_link', 500)->default(NULL)->comment('Где опубликованно(ссылка на публикацию)');
