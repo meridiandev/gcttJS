@@ -16,7 +16,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         //$staffs = Staff::all();
 
@@ -30,7 +30,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('staffs.create');
     }
