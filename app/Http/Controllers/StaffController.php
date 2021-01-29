@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreStaffRequest;
 use App\Models\Staff;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
@@ -18,9 +19,9 @@ class StaffController extends Controller
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        //$staffs = Staff::all();
+        $staffs = Staff::all();
 
-        return view('staffs.index');
+        return view('staffs.index', compact('staffs'));
     }
 
     /**
@@ -41,9 +42,10 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStaffRequest $request)
     {
-        //
+        Staff::create($request->validated());
+        //return redirect()->route('staffs.index');
     }
 
     /**

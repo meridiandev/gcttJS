@@ -24,7 +24,18 @@ class StoreStaffRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'first_name'     => [
+                'string',
+                'required',
+            ],
+            'surname'    => [
+                'string',
+                'required',
+            ],
+            'patronymic' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

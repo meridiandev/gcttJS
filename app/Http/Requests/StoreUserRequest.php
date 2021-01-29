@@ -31,8 +31,8 @@ class StoreUserRequest extends FormRequest
         ];
     }
 
-    public function authorize()
-    {
-        return Gate::allows('user_access');
-    }
+//    public function authorize()
+//    {
+//        return Gate::allows('user_access');
+//    }
 }
