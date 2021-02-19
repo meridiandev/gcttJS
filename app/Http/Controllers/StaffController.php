@@ -44,8 +44,10 @@ class StaffController extends Controller
      */
     public function store(StoreStaffRequest $request)
     {
-        Staff::create($request->validated());
-        //return redirect()->route('staffs.index');
+        //Staff::create($request->validated());
+        dd($this->create());
+
+        return redirect()->route('staffs.index');
     }
 
     /**

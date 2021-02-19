@@ -3,19 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class StoreStaffRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,6 +15,10 @@ class StoreStaffRequest extends FormRequest
     public function rules()
     {
         return [
+            'organization'     => [
+                'string',
+                'required',
+            ],
             'first_name'     => [
                 'string',
                 'required',
@@ -37,5 +32,15 @@ class StoreStaffRequest extends FormRequest
                 'required',
             ],
         ];
+    }
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return Gate::allows('global_admin_access');
     }
 }

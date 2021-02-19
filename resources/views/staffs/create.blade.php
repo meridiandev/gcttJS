@@ -13,7 +13,8 @@
                         <div class="shadow overflow-hidden sm:rounded-md">
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="organization" class="block text-sm font-medium text-gray-700">{{ __('Организация / Меридиан / Кванториум / ИТкуб') }}</label>
-                                <select id="organization" name="organization" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <select id="organization" name="organization" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" >
+                                    <option>{{ __('Выберите вариант') }}</option>
                                     <option>{{ __('Меридиан') }}</option>
                                     <option>{{ __('Кванториум') }}</option>
                                     <option>{{ __('ИТКуб') }}</option>
