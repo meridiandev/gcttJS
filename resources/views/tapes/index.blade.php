@@ -25,7 +25,7 @@
                                         {{ __('Заголовок') }}
                                     </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ __('Cодержание') }}
+                                        {{ __('Информация') }}
                                     </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         {{ __('Действие') }}
@@ -38,10 +38,10 @@
                                             {{ $tape->id }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $tape->title }}
+                                            {!! Str::limit($tape->title, 100) !!}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {!! Str::limit($tape->content, 300) !!}
+
                                             <p class="mt-2 text-sm text-gray-500">
                                                 Дата создания: {{ $tape->created_at }} Обновлено: {{ $tape->updated_at }}
                                             </p>

@@ -29,14 +29,45 @@ class TapeController extends Controller
         return view('tapes.create');
     }
 
-    public function store(StoreTapeRequest $request)
+    public function store(Request $request)
     {
         $user = Auth::user()->name;
 
-        Tape::create($request->validated());
+        $rules = [
+            'title' => 'required',
+            'link_images_1' => 'required|max:300',
+            'content_main_page' => 'required|max:300',
+            'content' => 'required|max:5000',
+            //'author' => 'required',
+            //'published' => 'required',
+            //'published_slider_status' => 'required'
+        ];
+
+        $messages = [
+            'title.required' => 'Введите название события',
+            'link_images_1.required' => 'Введите ссылку на изображение',
+            'link_images_1.max' => 'Ваша ссылка на изображение больше 300 символов!',
+            'content_main_page.required' => 'Введите текст заголовка',
+            'content_main_page.max' => 'Вы ввели более 300 символов!',
+            'content.required' => 'Введите текст статьи',
+            'content.max' => 'Введите менее 5000 символов!',
+            //'published.required' => 'Вы не опублековали статью!',
+            //'published_slider_status.required' => 'Вы не опублековали статью в слайдер!'
+        ];
+
+        $this->validate($request, $rules, $messages);
 
         $tape = new Tape();
+        $tape->title = $request->get('title');
+        $tape->link_images_1 = $request->get('link_images_1');
+        $tape->content_main_page = $request->get('content_main_page');
+        $tape->content = $request->get('content');
+        $tape->published = $request->get('published');
+        $tape->published_slider_status = $request->get('published_slider_status');
         $tape->author = $user;
+        $tape->save();
+
+        //Tape::create($request->validated());
 
         return redirect()->route('tapes.index');
     }
