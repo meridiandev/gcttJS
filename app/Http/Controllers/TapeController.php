@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTapeRequest;
 use App\Http\Requests\UpdateTapeRequest;
 use App\Models\Tape;
+use app\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class TapeController extends Controller
 {
@@ -29,7 +31,12 @@ class TapeController extends Controller
 
     public function store(StoreTapeRequest $request)
     {
+        $user = Auth::user()->name;
+
         Tape::create($request->validated());
+
+        $tape = new Tape();
+        $tape->author = $user;
 
         return redirect()->route('tapes.index');
     }

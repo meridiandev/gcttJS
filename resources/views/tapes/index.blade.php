@@ -41,7 +41,7 @@
                                             {{ $tape->title }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $tape->content }}
+                                            {!! Str::limit($tape->content, 300) !!}
                                             <p class="mt-2 text-sm text-gray-500">
                                                 Дата создания: {{ $tape->created_at }} Обновлено: {{ $tape->updated_at }}
                                             </p>
@@ -50,17 +50,17 @@
                                             </p>
                                             <p class="mt-2 text-sm text-gray-500">
                                                 Видно всем:
-                                                @if($tape->published = 1)
+                                                @if($tape->published == 1)
                                                     Да
-                                                @elseif($tape->published = 0)
+                                                @elseif($tape->published == 0)
                                                     Нет
                                                 @endif
                                             </p>
                                             <p class="mt-2 text-sm text-gray-500">
                                                 Слайдер:
-                                                @if($tape->published_slider_status = 1)
+                                                @if($tape->published_slider_status == 1)
                                                     Да
-                                                @elseif($tape->published_slider_status = 0)
+                                                @elseif($tape->published_slider_status == 0)
                                                     Нет
                                                 @endif
                                             </p>

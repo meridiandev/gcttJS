@@ -5,28 +5,25 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class StoreUserRequest extends FormRequest
+class StoreTapeRequest extends FormRequest
 {
     public function rules()
     {
         return [
-            'name'     => [
+            'title'     => [
                 'string',
                 'required',
             ],
-            'email'    => [
-                'required',
-                'unique:users',
-            ],
-            'password' => [
+            'link_images_1'    => [
                 'required',
             ],
-            'roles.*'  => [
-                'integer',
-            ],
-            'roles'    => [
+            'content_main_page' => [
                 'required',
-                'array',
+                'max:300',
+            ],
+            'content'  => [
+                'required',
+                'max:5000',
             ],
         ];
     }

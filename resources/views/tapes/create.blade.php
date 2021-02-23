@@ -3,7 +3,13 @@
 
     <script>
         tinymce.init({
-            selector: '#textarea_tape',
+            selector: '#textarea_tape1',
+            language: 'ru',
+            language_url : 'lang/tinymce/ru.js'
+        });
+
+        tinymce.init({
+            selector: '#textarea_tape2',
             language: 'ru',
             language_url : 'lang/tinymce/ru.js'
         });
@@ -32,13 +38,50 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="link_images_1" class="block font-medium text-sm text-gray-700">Ссылка на картинку</label>
+                            <input type="text" name="link_images_1" id="link_images_1" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('link_images_1', '') }}" />
+                            @error('link_images_1')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="content" class="block font-medium text-sm text-gray-700">Контент</label>
+
+                            <textarea id="textarea_tape1" name="content_main_page" id="content_main_page" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', '') }}" />
+                            </textarea>
+                            @error('content_main_page')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="content" class="block font-medium text-sm text-gray-700">Описание</label>
 
-                            <textarea id="textarea_tape" name="content" id="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', '') }}" />
+                            <textarea id="textarea_tape2" name="content" id="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', '') }}" />
+                            </textarea>
                             @error('content')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
-                            </textarea>
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="published" class="block text-sm font-medium text-gray-700">Опубликовать</label>
+                            <select id="published" name="published" autocomplete="published" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option> </option>
+                                <option>Нет</option>
+                                <option>Да</option>
+                            </select>
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="published_slider_status" class="block text-sm font-medium text-gray-700">Слайдер</label>
+                            <select id="published_slider_status" name="published_slider_status" autocomplete="published_slider_status" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option> </option>
+                                <option>Нет</option>
+                                <option>Да</option>
+                            </select>
                         </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
