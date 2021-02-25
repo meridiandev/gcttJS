@@ -1,4 +1,21 @@
 <x-app-layout>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#textarea_tape1',
+            language: 'ru',
+            language_url : 'lang/tinymce/ru.js'
+        });
+
+        tinymce.init({
+            selector: '#textarea_tape2',
+            language: 'ru',
+            language_url : 'lang/tinymce/ru.js'
+        });
+    </script>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Изменить новость
@@ -16,12 +33,61 @@
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="description" class="block font-medium text-sm text-gray-700">Описание</label>
-                            <input type="text" name="description" id="description" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('description', $tape->content) }}" />
-                            @error('description')
+                            <label for="title" class="block font-medium text-sm text-gray-700">Заголовок</label>
+                            <input type="text" name="title" id="title" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('description', $tape->title) }}" />
+                            @error('title')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="link_images_1" class="block font-medium text-sm text-gray-700">Ссылка на картинку</label>
+                            <input type="text" name="link_images_1" id="link_images_1" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('link_images_1', $tape->link_images_1) }}" />
+                            @error('link_images_1')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="content_main_page" class="block font-medium text-sm text-gray-700">Заголовок слайдера</label>
+                            <input type="text" name="content_main_page" id="title" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('content_main_page', $tape->content_main_page) }}" />
+                            @error('content_main_page')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="content" class="block font-medium text-sm text-gray-700">Описание</label>
+
+                            <textarea id="textarea_tape1" name="content" id="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', $tape->content) }}" />
+                            </textarea>
+                            @error('content')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="published" class="block text-sm font-medium text-gray-700">Опубликовать</label>
+                            <select id="published" name="published" autocomplete="published" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @if($tape->published == 0)
+                                    <option value="0">Выберите значанеи</option>
+                                @elseif($tape->published == 0)
+                                    <option value="0">Нет</option>
+                                @endif($tape->published == 1)
+                                    <option value="1">Да</option>
+                            </select>
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="published_slider_status" class="block text-sm font-medium text-gray-700">Слайдер</label>
+                            <select id="published_slider_status" name="published_slider_status" autocomplete="published_slider_status" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="{{ old('published_slider_status'. $tape->published_slider_status) }}">Выберите значанеи</option>
+                                <option value="{{ old('published_slider_status'. $tape->published_slider_status) }}">Нет</option>
+                                <option value="{{ old('published_slider_status', $tape->published_slider_status == 1) }}">Да</option>
+                            </select>
                         </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
