@@ -18,7 +18,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Изменить новость
+            {{ __('Изменить новость') }}
         </h2>
     </x-slot>
 
@@ -33,7 +33,7 @@
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="title" class="block font-medium text-sm text-gray-700">Заголовок</label>
+                            <label for="title" class="block font-medium text-sm text-gray-700">{{ __('Заголовок') }}</label>
                             <input type="text" name="title" id="title" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('description', $tape->title) }}" />
                             @error('title')
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="link_images_1" class="block font-medium text-sm text-gray-700">Ссылка на картинку</label>
+                            <label for="link_images_1" class="block font-medium text-sm text-gray-700">{{ __('Ссылка накартинку') }}</label>
                             <input type="text" name="link_images_1" id="link_images_1" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('link_images_1', $tape->link_images_1) }}" />
                             @error('link_images_1')
