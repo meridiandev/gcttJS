@@ -43,32 +43,32 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
                                             <p class="mt-2 text-sm text-gray-500">
-                                                Дата создания: {{ $tape->created_at }} Обновлено: {{ $tape->updated_at }}
+                                                {{ __('Дата создания:') }} {{ $tape->created_at }} {{ __('Обновлено:') }} {{ $tape->updated_at }}
                                             </p>
                                             <p class="mt-2 text-sm text-gray-500">
-                                                Автор: {{ $tape->author }}
+                                                {{ __('Автор:') }} {{ $tape->author }}
                                             </p>
                                             <p class="mt-2 text-sm text-gray-500">
-                                                Видно всем:
+                                                {{ __('Видно всем:') }}
                                                 @if($tape->published == 1)
-                                                    Да
+                                                {{ __('Да') }}
                                                 @elseif($tape->published == 0)
-                                                    Нет
+                                                {{ __('Нет') }}
                                                 @endif
                                             </p>
                                             <p class="mt-2 text-sm text-gray-500">
-                                                Слайдер:
+                                                {{ __('Слайдер:') }}
                                                 @if($tape->published_slider_status == 1)
-                                                    Да
+                                                    {{ __('Да') }}
                                                 @elseif($tape->published_slider_status == 0)
-                                                    Нет
+                                                    {{ __('Нет') }}
                                                 @endif
                                             </p>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('tapes.show', $tape->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Просмотр</a>
-                                            <a href="{{ route('tapes.edit', $tape->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Редактировать</a>
+                                            <a href="{{ route('tapes.show', $tape->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">{{ __('Просмотр') }}</a>
+                                            <a href="{{ route('tapes.edit', $tape->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">{{ __('Редактировать') }}</a>
                                             <form class="inline-block" action="{{ route('tapes.destroy', $tape->id) }}" method="POST" onsubmit="return confirm('Уверены ли вы?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
