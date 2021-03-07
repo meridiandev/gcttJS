@@ -22,6 +22,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^26.0.0",
         "@tailwindcss/forms": "^0.2.1"
     }
 }

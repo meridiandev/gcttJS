@@ -1,18 +1,10 @@
 <x-app-layout>
 
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
 
     <script>
         tinymce.init({
-            selector: '#textarea_tape1',
-            language: 'ru',
-            language_url : 'lang/tinymce/ru.js'
-        });
-
-        tinymce.init({
-            selector: '#textarea_tape2',
-            language: 'ru',
-            language_url : 'lang/tinymce/ru.js'
+            selector: `#textarea_tape1`
         });
     </script>
 
@@ -62,7 +54,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="content" class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea id="textarea_tape1" name="content" id="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', $tape->content) }}" />
+                            <textarea id="textarea_tape1" name="content" id="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', $tape->content) }}" />
                             </textarea>
                             @error('content')
                             <p class="text-sm text-red-600">{{ $message }}</p>
