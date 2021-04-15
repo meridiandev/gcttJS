@@ -16,7 +16,7 @@
                         <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Я хочу записаться в "IT-куб". Мои действия?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Вы можете придти по адресу ул.Циолковского, 78а и подать заявление на зачисление ребенка.
+                                Вы можете прийти по адресу ул.Циолковского, 78а и подать заявление на зачисление ребенка.
                             </p>
                         </div>
                     </li>
