@@ -37,7 +37,7 @@ class TapeController extends Controller
             'title' => 'required',
             'link_images_1' => 'required|max:300',
             'content_main_page' => 'required|max:300',
-            'content' => 'required|max:5000',
+            //'content' => 'required|max:15000',
             //'author' => 'required',
             //'published' => 'required',
             //'published_slider_status' => 'required'
@@ -50,7 +50,7 @@ class TapeController extends Controller
             'content_main_page.required' => 'Введите текст заголовка',
             'content_main_page.max' => 'Вы ввели более 300 символов!',
             'content.required' => 'Введите текст статьи',
-            'content.max' => 'Введите менее 5000 символов!',
+            //'content.max' => 'Введите менее 15000 символов!',
             //'published.required' => 'Вы не опублековали статью!',
             //'published_slider_status.required' => 'Вы не опублековали статью в слайдер!'
         ];

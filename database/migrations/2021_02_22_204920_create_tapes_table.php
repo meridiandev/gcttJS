@@ -17,7 +17,7 @@ class CreateTapesTable extends Migration
             $table->id();
             //$table->bigIncrements('id');
             $table->string('title', 300);
-            $table->string('content', 5000);
+            $table->text('content', 15000);
             $table->string('content_main_page', 300);
             $table->string('author')->unsignedInteger()->default();
             $table->string('slug', 100)->unsignedInteger()->default();

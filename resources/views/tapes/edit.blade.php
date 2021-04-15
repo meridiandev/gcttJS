@@ -1,10 +1,12 @@
 <x-app-layout>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
         tinymce.init({
-            selector: `#textarea_tape1`
+            selector: '#textarea_tape1',
+            language: 'ru',
+            language_url : 'lang/tinymce/ru.js'
         });
     </script>
 
