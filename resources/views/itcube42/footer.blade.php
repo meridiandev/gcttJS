@@ -25,7 +25,7 @@
                         Кемеровская область, г. Новокузнецк<br>
                         <br><br>
                         <strong>Телефон:</strong> +7 (3843) 77-88-89<br>
-                        <strong>Email:</strong> it-cube.nvkz@mail.ru<br>
+                        <strong>Email:</strong>itcube42@yandex.ru<br>
                     </p>
                 </div>
 
