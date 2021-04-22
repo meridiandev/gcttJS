@@ -13,7 +13,7 @@
                 <ul class="faq-list">
 
                     <li>
-                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Я хочу записаться в "IT-куб". Мои действия?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Я хочу записаться в "IT-CUBE42". Мои действия?<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                             <p>
                                 Вы можете прийти по адресу ул.Циолковского, 78а и подать заявление на зачисление ребенка.
@@ -40,7 +40,7 @@
                     </li>
 
                     <li>
-                        <div data-bs-toggle="collapse" class="collapsed question" href="#faqTime">Режим работы "IT-куб"а<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+                        <div data-bs-toggle="collapse" class="collapsed question" href="#faqTime">Режим работы "IT-CUBE42"<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faqTime" class="collapse" data-bs-parent=".faq-list">
                             <p>Понедельник-Пятница с 9.00 до 20.00</p>
                             <p>Суббота с 8:30 до 20:00</p>
@@ -52,7 +52,7 @@
                         <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Я представитель образовательной организации и было бы интересно посотрудничать<i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                         <div id="faq4" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                "IT-куб42" открыты к сотрудничеству. Наши контакты даны <a href="#contact">здесь</a>
+                                "IT-CUBE42" открыты к сотрудничеству. Наши контакты даны <a href="#contact">здесь</a>
                                 </p>
                         </div>
                     </li>
