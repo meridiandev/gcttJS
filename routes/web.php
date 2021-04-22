@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Itcube42EnterController;
+use App\Http\Controllers\Kvantum42EnterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('itcube42/index');
+
+// ITCube42 domain routing
+Route::domain('itcube42.ru')->group(function () {
+    Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
+});
+
+// Kvant42 domain routing
+Route::domain('kvantorium-nvkz.ru')->group(function () {
+    Route::get('/', \App\Http\Controllers\Kvantum42EnterController::class);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

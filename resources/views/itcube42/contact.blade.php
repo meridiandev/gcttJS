@@ -21,7 +21,7 @@
                 <div class="info-box  mb-4">
                     <i class="bx bx-envelope"></i>
                     <h3>Напишите нам на Email</h3>
-                    <p>it-cube.nvkz@mail.ru</p>
+                    <p>itcube42@yandex.ru</p>
                 </div>
             </div>
 
