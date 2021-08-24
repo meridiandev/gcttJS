@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStaffRequest;
 use App\Models\Staff;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class StaffController extends Controller
@@ -44,8 +44,9 @@ class StaffController extends Controller
      */
     public function store(StoreStaffRequest $request)
     {
-        //Staff::create($request->validated());
-        dd($this->create());
+        $status = Staff::create($request->validated());
+
+        dd($status);
 
         return redirect()->route('staffs.index');
     }

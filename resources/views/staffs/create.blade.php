@@ -11,6 +11,16 @@
                     <form method="post" action="{{ route('staffs.store') }}">
                         @csrf
                         <div class="shadow overflow-hidden sm:rounded-md">
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="account_id" class="block font-medium text-sm text-gray-700">{{ __('Привязать действующий аккаунт') }}</label>
+                                <input type="text" name="account_id" id="account_id" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('account_id', '') }}" />
+                                @error('account_id')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="organization" class="block text-sm font-medium text-gray-700">{{ __('Организация / Меридиан / Кванториум / ИТкуб') }}</label>
                                 <select id="organization" name="organization" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" >
@@ -95,7 +105,7 @@
 
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="email_address_2" class="block font-medium text-sm text-gray-700">{{ __('Почтовый ящик Email (дополнительный)') }}</label>
-                                <input type="email" name="email_address_0" id="email_address_2" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                <input type="email" name="email_address_2" id="email_address_2" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                        value="{{ old('email_address_2', '') }}" />
                                 @error('email_address_2')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
@@ -148,8 +158,8 @@
                             </div>
 
                             <div class="px-4 py-5 bg-white sm:p-6">
-                                <label for="organization" class="block text-sm font-medium text-gray-700">{{ __('Соискатель / Аспирант (Отметить)') }}</label>
-                                <select id="organization" name="organization" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <label for="applicant_student" class="block text-sm font-medium text-gray-700">{{ __('Соискатель / Аспирант (Отметить)') }}</label>
+                                <select id="applicant_student" name="applicant_student" autocomplete="applicant_student" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option>{{ __('Нет') }}</option>
                                     <option>{{ __('Соискатель') }}</option>
                                     <option>{{ __('Аспирант') }}</option>
@@ -192,11 +202,102 @@
                                 </select>
                             </div>
 
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="inn" class="block font-medium text-sm text-gray-700">{{ __('ИНН') }}</label>
+                                <input type="text" name="inn" id="inn" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('inn', '') }}" />
+                                @error('inn')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="snils" class="block font-medium text-sm text-gray-700">{{ __('СНИЛС') }}</label>
+                                <input type="text" name="snils" id="snils" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('snils', '') }}" />
+                                @error('snils')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="passport_series" class="block font-medium text-sm text-gray-700">{{ __('Серия паспорта') }}</label>
+                                <input type="text" name="passport_series" id="passport_series" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('passport_series', '') }}" />
+                                @error('passport_series')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="passport_number" class="block font-medium text-sm text-gray-700">{{ __('Номер паспорта') }}</label>
+                                <input type="text" name="passport_number" id="passport_number" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('passport_number', '') }}" />
+                                @error('passport_number')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="passport_issued_by" class="block font-medium text-sm text-gray-700">{{ __('Кем выдан паспорт УФМС / МВД') }}</label>
+                                <input type="text" name="passport_issued_by" id="passport_issued_by" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('passport_issued_by', '') }}" />
+                                @error('passport_issued_by')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="passport_date_of_issue" class="block font-medium text-sm text-gray-700">{{ __('Дата выдачи') }}</label>
+                                <input type="date" name="passport_date_of_issue" id="passport_date_of_issue" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('passport_date_of_issue', '') }}" />
+                                @error('passport_date_of_issue')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="policy_series" class="block font-medium text-sm text-gray-700">{{ __('Серия полиса') }}</label>
+                                <input type="text" name="policy_series" id="policy_series" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('policy_series', '') }}" />
+                                @error('policy_series')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="policy_number" class="block font-medium text-sm text-gray-700">{{ __('Номер полиса') }}</label>
+                                <input type="text" name="policy_number" id="policy_number" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('policy_number', '') }}" />
+                                @error('policy_number')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="policy_date_of_issue" class="block font-medium text-sm text-gray-700">{{ __('Дата выдачи полиса') }}</label>
+                                <input type="date" name="policy_date_of_issue" id="policy_date_of_issue" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('policy_date_of_issue', '') }}" />
+                                @error('policy_date_of_issue')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
+                                <label for="policy_insured_company" class="block font-medium text-sm text-gray-700">{{ __('Компания страхователь') }}</label>
+                                <input type="text" name="policy_insured_company" id="policy_insured_company" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                       value="{{ old('policy_insured_company', '') }}" />
+                                @error('policy_insured_company')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                                 <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                     {{ __('Создать') }}
                                 </button>
                             </div>
+
                         </div>
                     </form>
                 </div>
