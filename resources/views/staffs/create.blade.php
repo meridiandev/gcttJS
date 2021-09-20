@@ -13,6 +13,31 @@
                         <div class="shadow overflow-hidden sm:rounded-md">
 
                             <div class="px-4 py-5 bg-white sm:p-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">
+                                    {{ __('Добавить фотографию сотрудника') }}
+                                </label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                    <div class="space-y-1 text-center">
+                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="staff_photo" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <span>{{ __('Загрузить файл') }}</span>
+                                                <input id="staff_photo" name="staff_photo" type="file" class="sr-only">
+                                            </label>
+                                            <p class="pl-1">{{ __('или перетащите') }}</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">
+                                             {{ __('PNG, JPG, GIF до 10MB') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="account_id" class="block font-medium text-sm text-gray-700">{{ __('Привязать действующий аккаунт') }}</label>
                                 <input type="text" name="account_id" id="account_id" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                        value="{{ old('account_id', '') }}" />
@@ -25,9 +50,9 @@
                                 <label for="organization" class="block text-sm font-medium text-gray-700">{{ __('Организация / Меридиан / Кванториум / ИТкуб') }}</label>
                                 <select id="organization" name="organization" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" >
                                     <option>{{ __('Выберите вариант') }}</option>
-                                    <option>{{ __('Меридиан') }}</option>
-                                    <option>{{ __('Кванториум') }}</option>
-                                    <option>{{ __('ИТКуб') }}</option>
+                                    <option value="0">{{ __('Меридиан') }}</option>
+                                    <option value="1">{{ __('Кванториум') }}</option>
+                                    <option value="2">{{ __('ИТКуб') }}</option>
                                 </select>
                             </div>
 
@@ -62,9 +87,12 @@
                                 <label for="gender" class="block text-sm font-medium text-gray-700">{{ __('Пол') }}</label>
                                 <select id="gender" name="gender" autocomplete="gender" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option>{{ __('Выберите пол') }}</option>
-                                    <option>{{ __('Женский') }}</option>
-                                    <option>{{ __('Мужской') }}</option>
+                                    <option value="0">{{ __('Женский') }}</option>
+                                    <option value="1">{{ __('Мужской') }}</option>
                                 </select>
+                                @error('gender')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div class="px-4 py-5 bg-white sm:p-6">
@@ -161,8 +189,8 @@
                                 <label for="applicant_student" class="block text-sm font-medium text-gray-700">{{ __('Соискатель / Аспирант (Отметить)') }}</label>
                                 <select id="applicant_student" name="applicant_student" autocomplete="applicant_student" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option>{{ __('Нет') }}</option>
-                                    <option>{{ __('Соискатель') }}</option>
-                                    <option>{{ __('Аспирант') }}</option>
+                                    <option value="0">{{ __('Соискатель') }}</option>
+                                    <option value="1">{{ __('Аспирант') }}</option>
                                 </select>
                             </div>
 
@@ -188,8 +216,8 @@
                                 <label for="underemployment" class="block text-sm font-medium text-gray-700">{{ __('Неполная занятость (Да или Нет) по умлочанию - НЕТ') }}</label>
                                 <select id="underemployment" name="underemployment" autocomplete="organization" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option>{{ __('Выберите вариант') }}</option>
-                                    <option>{{ __('Да') }}</option>
-                                    <option>{{ __('Нет') }}</option>
+                                    <option value="1">{{ __('Да') }}</option>
+                                    <option value="0">{{ __('Нет') }}</option>
                                 </select>
                             </div>
 
@@ -197,8 +225,8 @@
                                 <label for="retiree" class="block text-sm font-medium text-gray-700">{{ __('Пенсионер по выслуге лет') }}</label>
                                 <select id="retiree" name="retiree" autocomplete="retiree" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     <option>{{ __('Выберите вариант') }}</option>
-                                    <option>{{ __('Да') }}</option>
-                                    <option>{{ __('Нет') }}</option>
+                                    <option value="1">{{ __('Да') }}</option>
+                                    <option value="0">{{ __('Нет') }}</option>
                                 </select>
                             </div>
 

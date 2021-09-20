@@ -17,11 +17,11 @@ class CreateStaffTable extends Migration
             $table->id();
             // 1
             $table->string('account_id')->comment('Привязка к учетной записи, если есть.');
-            $table->string('organization',100)->unique()->comment('Организация/Меридиан/Кванториум/ИТкуб');
-            $table->string('first_name', 100)->unique()->comment('Имя');
-            $table->string('surname', 100)->unique()->comment('Фамилия');
-            $table->string('patronymic', 100)->unique()->comment('Отчество');
-            $table->boolean('gender')->unsigned()->default(NULL)->comment('Пол');
+            $table->string('organization')->comment('Организация/Меридиан/Кванториум/ИТкуб');
+            $table->string('first_name')->comment('Имя');
+            $table->string('surname')->comment('Фамилия');
+            $table->string('patronymic')->comment('Отчество');
+            $table->boolean('gender')->comment('Пол');
             $table->binary('data_of_birth')->comment('Дата рождения');
             // 2
             $table->string('home_address', 200)->default(NULL)->comment('Домашинй адрес');

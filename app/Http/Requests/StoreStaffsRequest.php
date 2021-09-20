@@ -1,55 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Validator;
-use App\Http\Requests\StoreStaffsRequest;
-use App\Models\Staff;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\Response;
 
-class StaffController extends Controller
+class StoreStaffsRequest extends FormRequest
 {
     /**
-     * Display a listing of the resource.
+     * Determine if the user is authorized to make this request.
      *
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
-    public function index()
+    public function authorize()
     {
-        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $staffs = Staff::all();
-
-        return view('staffs.index', compact('staffs'));
+        return Gate::allows('global_admin_access');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Get the validation rules that apply to the request.
      *
-     * @return \Illuminate\Http\Response
+     * @return array
      */
-    public function create()
+    public function rules()
     {
-        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('staffs.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request)
-    {
-        // Не удалось сделать через php artisan Request, нужно переделать, есть заготовка.
-        // Requests/StoreStaffsRequest
-        $rules = [
+        return [
             // 1
             'account_id'     => 'present',
             'organization'   => '',
@@ -70,24 +45,64 @@ class StaffController extends Controller
             'time_standard' => 'required',
             'qualification_group' => 'required',
             'applicant_student' => '',
-            'start_work' => '',
-            'end_work' => '',
+            'start_work' => 'required',
+            'end_work' => 'required',
             'underemployment' => '',
             'retiree' => '',
-            'staff_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'staff_photo' => 'present',
             'inn' => 'required',
             'snils' => 'required',
             'passport_series' => 'required',
             'passport_number' => 'required',
             'passport_issued_by' => 'required',
-            'passport_date_of_issue' => '',
+            'passport_date_of_issue' => 'required',
             'policy_series' => 'required',
             'policy_number' => 'required',
             'policy_date_of_issue' => 'required',
             'policy_insured_company' => 'required',
-        ];
 
-        $messages = [
+
+            // 1
+//            'account_id'     => 'present|string',
+//            'organization'   => 'regex:/^[\w\- \p{Cyrillic}]*$/u',
+//            'first_name'     => 'regex:/^[\w\- \p{Cyrillic}]*$/u',
+//            'surname'    => 'regex:/^[\w\- \p{Cyrillic}]*$/u',
+//            'patronymic' => 'regex:/^[\w\- \p{Cyrillic}]*$/u',
+//            'gender' => 'required|boolean',
+//            'data_of_birth' => 'required|date',
+//            // 2
+//            'home_address' => 'required|string',
+//            'email_address_0' => 'required|string|email',
+//            'email_address_1' => 'required|string|email',
+//            'email_address_2' => 'required|string|email',
+//            'telephone_mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//            'telephone_home' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//            'telephone_relative' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//            // 3
+//            'time_standard' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'qualification_group' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'applicant_student' => 'required|string',
+//            'start_work' => 'required|date',
+//            'end_work' => 'required|date',
+//            'underemployment' => 'required|string',
+//            'retiree' => 'required|string',
+//            'staff_photo' => 'present|string',
+//            'inn' => 'required|string',
+//            'snils' => 'required|string',
+//            'passport_series' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'passport_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'passport_issued_by' => 'required|string',
+//            'passport_date_of_issue' => 'required|date',
+//            'policy_series' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'policy_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+//            'policy_date_of_issue' => 'required|date',
+//            'policy_insured_company' => 'required|string',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
             // 1
             'account_id.string'     => 'Введите id аккаунта',
             'organization.required'   => 'Необходимо указать организацию',
@@ -102,7 +117,6 @@ class StaffController extends Controller
             // 2
             'home_address.required' => 'Необходимо указать домашний адрес (по прописке) ',
             'email_address_0.required' => 'Необходимо ввести действующий электронный почтовый адрес',
-            'email_address_0.unique' => 'Данная почта уже есть в базе!',
             'email_address_1.required' => 'Необходимо ввести дополнительный электронный почтовый адрес',
             'email_address_2.required' => 'Необходимо ввести дополнительный электронный почтовый адрес',
             'telephone_mobile.required' => 'Необходимо указать сотовый телефон',
@@ -128,98 +142,5 @@ class StaffController extends Controller
             'policy_date_of_issue.required' => 'Необходимо указать дату выдачи полиса',
             'policy_insured_company.required' => 'Необходимо указать компанию страхователь',
         ];
-
-        $this->validate($request, $rules, $messages);
-
-        $staffData = new Staff([
-            'account_id' => $request->get('account_id'),
-            'organization' => $request->get('organization'),
-            'first_name' => $request->get('first_name'),
-            'surname' => $request->get('surname'),
-            'patronymic' => $request->get('patronymic'),
-            'gender' => $request->get('gender'),
-            'data_of_birth' => $request->get('data_of_birth'),
-            'home_address' => $request->get('home_address'),
-            'email_address_0' => $request->get('email_address_0'),
-            'email_address_1' => $request->get('email_address_1'),
-            'email_address_2' => $request->get('email_address_2'),
-            'telephone_mobile' => $request->get('telephone_mobile'),
-            'telephone_home' => $request->get('telephone_home'),
-            'telephone_relative' => $request->get('telephone_relative'),
-            'time_standard' => $request->get('time_standard'),
-            'qualification_group' => $request->get('qualification_group'),
-            'applicant_student' => $request->get('applicant_student'),
-            'start_work' => $request->get('start_work'),
-            'end_work' => $request->get('end_work'),
-            'underemployment' => $request->get('underemployment'),
-            'retiree' => $request->get('retiree'),
-            //'staff_photo' => $request->get('staff_photo'),
-            'inn' => $request->get('inn'),
-            'snils' => $request->get('snils'),
-            'passport_series' => $request->get('passport_series'),
-            'passport_number' => $request->get('passport_number'),
-            'passport_date_of_issue' => $request->get('passport_date_of_issue'),
-            'policy_series' => $request->get('policy_series'),
-            'policy_number' => $request->get('policy_number'),
-            'passport_issued_by' => $request->get('passport_issued_by'),
-            'policy_date_of_issue' => $request->get('policy_date_of_issue'),
-            'policy_insured_company' => $request->get('policy_insured_company')
-
-        ]);
-
-        // Хард код
-        $staffData->staff_photo = Storage::putFile('users/staff_photo', request()->staff_photo, $staffData->name . '_staffPhotoImage.png');
-
-        // Сохраняем этот фарш
-        //dd($staffData);
-        $staffData->save();
-
-
-        return redirect()->route('staffs.index')->with('success', $staffData->first_name . ' создан(а) успешно.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
