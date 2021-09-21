@@ -16,4 +16,9 @@ class Kvantum42EnterController extends Controller
     {
         return view('kvant42/index');
     }
+
+    public function index_one(Request $request)
+    {
+        return view('kvant42/index_one');
+    }
 }

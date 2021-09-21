@@ -16,12 +16,13 @@ class CreateStaffTable extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
             // 1
-            $table->boolean('organization')->unsigned()->default(NULL)->comment('Организация/Меридиан/Кванториум/ИТкуб');
-            $table->string('first_name', 100)->unique()->comment('');
-            $table->string('surname', 100)->unique()->comment('');
-            $table->string('patronymic', 100)->unique()->comment('отчество');
-            $table->boolean('gender')->unsigned()->default(NULL);
-            $table->binary('data_of_birth');
+            $table->string('account_id')->comment('Привязка к учетной записи, если есть.');
+            $table->string('organization')->comment('Организация/Меридиан/Кванториум/ИТкуб');
+            $table->string('first_name')->comment('Имя');
+            $table->string('surname')->comment('Фамилия');
+            $table->string('patronymic')->comment('Отчество');
+            $table->boolean('gender')->comment('Пол');
+            $table->binary('data_of_birth')->comment('Дата рождения');
             // 2
             $table->string('home_address', 200)->default(NULL)->comment('Домашинй адрес');
             $table->string('email_address_0', 100)->unique()->comment('Почтовый ящик');
@@ -33,11 +34,11 @@ class CreateStaffTable extends Migration
             // 3
             $table->char('time_standard', 100)->comment('Табельный номер');
             $table->char('qualification_group', 100)->default(NULL)->comment('Квалификационная группа');
-            $table->boolean('applicant_student')->default(NULL)->comment('Соискатель/ Аспирант (Check)');
-            $table->string('start_work')->comment('Дата начала трудовой деятельности');
-            $table->string('end_work')->comment('Дата окончания трудовой деятельности');
-            $table->boolean('underemployment')->default(FALSE)->comment('Неполная занятость(Да или нет)по умлочанию - НЕТ');
-            $table->boolean('retiree')->default(NULL)->comment('Пенсионер по выслуге лет');
+            $table->string('applicant_student')->comment('Соискатель/ Аспирант (Check)');
+            $table->binary('start_work')->comment('Дата начала трудовой деятельности');
+            $table->binary('end_work')->comment('Дата окончания трудовой деятельности');
+            $table->string('underemployment')->comment('Неполная занятость(Да или нет)по умлочанию - НЕТ');
+            $table->string('retiree')->comment('Пенсионер по выслуге лет');
             $table->string('staff_photo')->default(NULL)->comment('Фотография работника');
             $table->string('inn')->default(NULL)->comment('ИНН');
             $table->string('snils')->default(NULL)->comment('СНИЛС');

@@ -36,3 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('staffs', \App\Http\Controllers\StaffController::class);
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
 });
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});

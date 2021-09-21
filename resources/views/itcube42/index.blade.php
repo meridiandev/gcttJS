@@ -10,6 +10,7 @@
     <meta content="ITCube42" name="keywords">
 
 @include('itcube42/loader')
+    @include('itcube42.googleAnalytics')
 
 <!-- =======================================================
     * Template Name: BizLand - v3.0.1
