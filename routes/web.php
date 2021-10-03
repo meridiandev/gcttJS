@@ -17,14 +17,14 @@ use App\Http\Controllers\Kvantum42EnterController;
 
 
 // ITCube42 domain routing
-Route::domain('itcube42.ru')->group(function () {
+//Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
-});
+//});
 
 // Kvant42 domain routing
-Route::domain('kvantorium-nvkz.ru')->group(function () {
-    Route::get('/', \App\Http\Controllers\Kvantum42EnterController::class);
-});
+// Route::domain('kvantorium-nvkz.ru')->group(function () {
+//     Route::get('/', \App\Http\Controllers\Kvantum42EnterController::class);
+// });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
