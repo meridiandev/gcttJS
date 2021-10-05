@@ -34,6 +34,9 @@
                                         </p>
                                     </div>
                                 </div>
+                                @error('staff_photo')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                                 @error('staff_photo')
                                 <p class="text-sm text-red-600">{{ $message }}</p>

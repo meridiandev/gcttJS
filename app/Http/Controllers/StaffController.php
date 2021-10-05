@@ -74,7 +74,7 @@ class StaffController extends Controller
             'end_work' => '',
             'underemployment' => '',
             'retiree' => '',
-            'staff_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'staff_photo' => 'required|image|mimes:png|max:2048',
             'inn' => 'required',
             'snils' => 'required',
             'passport_series' => 'required',
@@ -116,7 +116,11 @@ class StaffController extends Controller
             'end_work.required' => 'Необходимо указать дату окончания трудовой деятельности',
             'underemployment.required' => 'Необходимо указать неполная занятость (Да или Нет) по умолчанию - НЕТ',
             'retiree.required' => 'Необходимо указать пенсионер по выслуге лет (Да или Нет) по умолчанию - НЕТ',
+<<<<<<< HEAD
             'staff_photo.required' => 'Необходимо загрузить фотографию, PNG до 2х мегабайт',
+=======
+            'staff_photo.required' => 'Необходимо загрузить фотографию',
+>>>>>>> ce60033016e33ea2f53ca9af3a36044e3454bb18
             'inn.required' => 'Необходимо указать ИНН',
             'snils.required' => 'Необходимо указать СНИЛС',
             'passport_series.required' => 'Необходимо указать серию паспорта',
