@@ -116,7 +116,7 @@ class StaffController extends Controller
             'end_work.required' => 'Необходимо указать дату окончания трудовой деятельности',
             'underemployment.required' => 'Необходимо указать неполная занятость (Да или Нет) по умолчанию - НЕТ',
             'retiree.required' => 'Необходимо указать пенсионер по выслуге лет (Да или Нет) по умолчанию - НЕТ',
-            'staff_photo.present' => 'Необходимо загрузить фотографию',
+            'staff_photo.required' => 'Необходимо загрузить фотографию, PNG до 2х мегабайт',
             'inn.required' => 'Необходимо указать ИНН',
             'snils.required' => 'Необходимо указать СНИЛС',
             'passport_series.required' => 'Необходимо указать серию паспорта',
@@ -153,7 +153,7 @@ class StaffController extends Controller
             'end_work' => $request->get('end_work'),
             'underemployment' => $request->get('underemployment'),
             'retiree' => $request->get('retiree'),
-            //'staff_photo' => $request->get('staff_photo'),
+            'staff_photo' => $request->get('staff_photo'),
             'inn' => $request->get('inn'),
             'snils' => $request->get('snils'),
             'passport_series' => $request->get('passport_series'),
@@ -168,7 +168,7 @@ class StaffController extends Controller
         ]);
 
         // Хард код
-        $staffData->staff_photo = Storage::putFile('users/staff_photo', request()->staff_photo, $staffData->name . '_staffPhotoImage.png');
+        $staffData->staff_photo = Storage::putFile('users/staffs_photo', request()->staff_photo, $staffData->name . '_staffPhotoImage.png');
 
         // Сохраняем этот фарш
         //dd($staffData);

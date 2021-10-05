@@ -30,11 +30,14 @@
                                             <p class="pl-1">{{ __('или перетащите') }}</p>
                                         </div>
                                         <p class="text-xs text-gray-500">
-                                             {{ __('PNG, JPG, GIF до 10MB') }}
+                                             {{ __('PNG до 2MB') }}
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                                @error('staff_photo')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div class="px-4 py-5 bg-white sm:p-6">
