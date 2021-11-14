@@ -1,3 +1,4 @@
+<div class="container mx-auto">
 <div class="overflow-auto h-screen pb-24 px-4 md:px-6">
     <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
         {{ __('Добро пожаловать,' ) }}
@@ -23,4 +24,5 @@
         {{-- teacher webinar & curse views/components/cabinet/teacher/webinar-course --}}
         <x-cabinet.teacher.webinarCourse />
     </div>
+</div>
 </div>
