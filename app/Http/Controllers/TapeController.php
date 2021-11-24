@@ -11,15 +11,19 @@ use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Pagination\Paginator;
+use Livewire\Component;
+use Livewire\WithPagination;
+
 class TapeController extends Controller
 {
+    use WithPagination;
+
     public function index()
     {
         abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tapes = Tape::all();
-
-        return view('tapes.index', compact('tapes'));
+        return view('tapes.index', ['tapes' => Tape::paginate(10)]);
     }
 
     public function create()
