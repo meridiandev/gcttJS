@@ -23,6 +23,8 @@ use App\Http\Livewire\Tapes;
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
     Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
+    Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
+
 //});
 
 // Kvant42 domain routing
