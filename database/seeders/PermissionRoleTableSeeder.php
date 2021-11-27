@@ -19,4 +19,5 @@ class PermissionRoleTableSeeder extends Seeder
 
         // 4 gbadmin@gbadmin.com
         Role::findOrFail(4)->permissions()->sync($user_permissions);
+    }
 }
