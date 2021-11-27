@@ -31,7 +31,15 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="password" class="block font-medium text-sm text-gray-700">{{ __('Пароль') }}</label>
-                            <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <input type="password" name="password" required autocomplete="new-password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            @error('password')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="password-confirm" class="block font-medium text-sm text-gray-700">{{ __('Подтвердите пароль') }}</label>
+                            <input type="password" name="password_confirmation" required autocomplete="new-password" id="password-confirm" class="form-input rounded-md shadow-sm mt-1 block w-full" />
                             @error('password')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

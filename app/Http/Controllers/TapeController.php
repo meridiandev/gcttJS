@@ -15,7 +15,7 @@ class TapeController extends Controller
 {
     public function index()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $tapes = Tape::all();
 
@@ -24,7 +24,7 @@ class TapeController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('tapes.create');
     }
@@ -74,14 +74,14 @@ class TapeController extends Controller
 
     public function show(Tape $tape)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('tapes.show', compact('tape'));
     }
 
     public function edit(Tape $tape)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('tapes.edit', compact('tape'));
     }
@@ -95,7 +95,7 @@ class TapeController extends Controller
 
     public function destroy(Tape $tape)
     {
-        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $tape->delete();
 

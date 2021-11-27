@@ -16,7 +16,7 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 2,
-                'title' => 'task_access',
+                'title' => 'teacher_access',
             ],
             [
                 'id'    => 3,
@@ -33,6 +33,18 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 6,
                 'title' => 'parent_access',
+            ],
+            [
+                'id'    => 7,
+                'title' => 'director_access',
+            ],
+            [
+                'id'    => 8,
+                'title' => 'head_teacher_access',
+            ],
+            [
+                'id'    => 9,
+                'title' => 'guest_access',
             ],
         ];
 

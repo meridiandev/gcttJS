@@ -10,29 +10,16 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => [
-                'string',
-                'required',
-            ],
-            'email'    => [
-                'required',
-                'unique:users',
-            ],
-            'password' => [
-                'required',
-            ],
-            'roles.*'  => [
-                'integer',
-            ],
-            'roles'    => [
-                'required',
-                'array',
-            ],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'roles.*'  => ['integer',],
+            'roles'    => ['required','array',],
         ];
     }
 
     public function authorize()
     {
-        return Gate::allows('user_access');
+        return Gate::allows('global_admin_access');
     }
 }
