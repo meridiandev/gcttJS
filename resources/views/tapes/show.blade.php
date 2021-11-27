@@ -54,10 +54,19 @@
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
                                         <p class="mt-2 text-sm text-gray-500">
-                                            {{ __('Дата создания:') }} {{ $tape->created_at }} {{ __('Обновлено:') }} {{ $tape->updated_at }}
+                                            {{ __('Автор:') }} {{ $tape->author }}
                                         </p>
                                         <p class="mt-2 text-sm text-gray-500">
-                                            {{ __('Автор:') }} {{ $tape->author }}
+                                            {{ __('Добавлен автором:') }}
+                                        </p>
+                                        <p class="mt-2 text-sm text-gray-500">
+                                            {{ __('Просмотров:') }}
+                                        </p>
+                                        <p class="mt-2 text-sm text-gray-500">
+                                            {{ __('Комментарии:') }} {{ __('0') }}
+                                        </p>
+                                        <p class="mt-2 text-sm text-gray-500">
+                                            {{ __('Автор виден:') }} {{ __('Да') }}
                                         </p>
                                         <p class="mt-2 text-sm text-gray-500">
                                             {{ __('Видно всем:') }}
@@ -75,8 +84,25 @@
                                                 {{ __('Нет') }}
                                            @endif
                                        </p>
+                                        <p class="mt-2 text-sm text-gray-500">
+                                            {{ __('Дата создания:') }} {{ $tape->created_at }} {{Carbon\Carbon::parse($tape->created_at)->format('d/m/Y')}} {{ __('Обновлено:') }} {{ $tape->updated_at }} {{Carbon\Carbon::parse($tape->created_at)->format('d/m/Y')}}
+                                        </p>
                                    </td>
                                </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ __('Специальные действия') }}
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+
+                                            <a href="{{ route('tapes.edit', $tape->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><button class="px-5 py-2 border-green-500 border text-green-500 rounded transition duration-300 hover:bg-green-700 hover:text-white focus:outline-none">{{ __('Редактировать') }}</button></a>
+                                        <form class="inline-block" action="{{ route('tapes.destroy', $tape->id) }}" method="POST" onsubmit="return confirm('Уверены ли вы?');">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none" value="Удалить">
+                                        </form>
+                                    </td>
+                                </tr>
                            </table>
                        </div>
                    </div>

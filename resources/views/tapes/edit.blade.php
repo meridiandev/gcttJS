@@ -20,6 +20,7 @@
         <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <a href="{{ route('tapes.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к новостям') }}</a>
+                <a href="{{ route('tapes.show', $tape->id) }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Назад') }}</a>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <form method="post" action="{{ route('tapes.update', $tape->id) }}">
@@ -56,7 +57,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="content" class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea id="textarea_tape1" name="content" id="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{{ old('content', $tape->content) }}" />
+                            <textarea id="textarea_tape1" name="content" id="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full " value="{!! old('content', $tape->content) !!}" />
                             </textarea>
                             @error('content')
                             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -80,7 +81,7 @@
                             <select id="published_slider_status" name="published_slider_status" autocomplete="published_slider_status" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 <option value="{{ old('published_slider_status'. $tape->published_slider_status) }}">{{ __('Выберите значанеи') }}</option>
                                 <option value="{{ old('published_slider_status'. $tape->published_slider_status) }}">{{ __('Нет') }}</option>
-                                <option value="{{ old('published_slider_status', $tape->published_slider_status == 1) }}">{{ __('Да') }}</option>
+                                <option value="{{ old('published_slider_status', $tape->published_slider_status) }} ">{{ __('Да') }}</option>
                             </select>
                         </div>
 

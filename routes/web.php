@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Itcube42EnterController;
 use App\Http\Controllers\Kvantum42EnterController;
+use App\Http\Controllers\BlogController;
+
+use App\Http\Livewire\Tapes;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,7 @@ use App\Http\Controllers\Kvantum42EnterController;
 // ITCube42 domain routing
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
+    Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
 //});
 
 // Kvant42 domain routing
@@ -35,9 +39,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', \App\Http\Controllers\UsersController::class);
     Route::resource('staffs', \App\Http\Controllers\StaffController::class);
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
+
+    // Clear cache website
+    Route::get('/clear-cache', function() {
+        Artisan::call('cache:clear');
+        return "Cache is cleared";
+    });
 });
 
-Route::get('/clear-cache', function() {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
-});
+//Route::get('tapes', Tapes::class);

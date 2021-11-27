@@ -16,7 +16,7 @@ class PermissionRoleTableSeeder extends Seeder
         $user_permissions = $admin_permissions->filter(function ($permission) {
             return substr($permission->title, 0, 8) != 'user_';
         });
+
         // 4 gbadmin@gbadmin.com
         Role::findOrFail(4)->permissions()->sync($user_permissions);
-    }
 }
