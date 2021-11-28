@@ -46,7 +46,7 @@
             <form method="post" action="{{ route('comments.store') }}">
                 @csrf
                 <div class="form-group">
-                    <textarea class="form-control p-4 mt-4 bg-white border rounded-lg w-full mx-auto lg:w-1/2" name="body"></textarea>
+                    <textarea class="form-control p-4 mt-4 bg-white border rounded-lg w-full mx-auto lg:w-1/2" name="body" placeholder="Напишите комментарий здесь"></textarea>
                     <input type="hidden" name="tape_id" value="{{ $tape->id }}" />
                 </div>
                 {{--<div class="form-group">--}}

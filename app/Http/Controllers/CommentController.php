@@ -9,9 +9,16 @@ class CommentController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-           'body' => 'required',
-        ]);
+        $request->validate(
+            $rules = [
+            'body'=>'required|unique:comments|min:5|max:255',
+        ],
+            $error_messages = [
+            'body.required' => 'Введите текст комментария',
+            'body.min' => 'Введите более 5 символов',
+            'body.max' => 'Введите менее 255 символов']
+        );
+
 
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
@@ -19,5 +26,15 @@ class CommentController extends Controller
         Comment::create($input);
 
         return back();
+    }
+
+    public function edit(Comment $comment)
+    {
+
+    }
+
+    public function destroy(Comment $comment)
+    {
+
     }
 }
