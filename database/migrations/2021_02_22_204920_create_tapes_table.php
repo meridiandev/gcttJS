@@ -30,7 +30,18 @@ class CreateTapesTable extends Migration
             $table->boolean('organization_show')->unsignedInteger()->default(10);
             $table->boolean('published')->unsignedInteger()->default(0);
             $table->boolean('published_slider_status')->unsignedInteger()->default(0);
+            $table->softDeletes();
             $table->timestamps();
+        });
+
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('tape_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->text('body');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -42,5 +53,6 @@ class CreateTapesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tapes');
+        Schema::dropIfExists('comments');
     }
 }

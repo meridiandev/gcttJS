@@ -16,6 +16,11 @@ class BlogController extends Controller
         return view('blogs.index')->with('tapes', $tapes);
     }
 
+    public function show(Tape $tape)
+    {
+        return view('blogs.show')->with('tape', $tape);
+    }
+
     public function search(Request $request){
         // limit 10 Request
         $limit = $request->has('limit') ? $request->get('limit') : 10;

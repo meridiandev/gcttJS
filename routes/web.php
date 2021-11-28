@@ -22,8 +22,10 @@ use App\Http\Livewire\Tapes;
 // ITCube42 domain routing
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
-    Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
+    Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
     Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
+    Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
+    //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
 
 //});
 
@@ -41,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', \App\Http\Controllers\UsersController::class);
     Route::resource('staffs', \App\Http\Controllers\StaffController::class);
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
+    Route::resource('/comments', \App\Http\Controllers\CommentController::class);
 
     // Clear cache website
     Route::get('/clear-cache', function() {

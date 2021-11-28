@@ -50,7 +50,8 @@
         <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
             @if(count($tapes) > 0)
             @foreach ($tapes as $tape)
-            <article class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+            <a href="./blog/{{ $tape->id }}">
+                <article class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
                 <div class="relative w-full h-80 md:h-64 lg:h-44">
                     <img src="{{ $tape->link_images_1 }}"
                          alt=""
@@ -76,7 +77,7 @@
                         </p>
                     </div>
                 </div>
-            </article>
+            </article></a>
             @endforeach
             @else
                 <div class="title">
