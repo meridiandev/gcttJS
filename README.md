@@ -15,6 +15,10 @@
 ## Help video
 - https://www.youtube.com/watch?v=pyOcSEkG4Q0&t=194s&ab_channel=LaravelBusiness
 
+## Package
+
+- https://github.com/cybercog/laravel-ban
+
 ## Roles(как работает)
 - Идет обращение в title->'user_' данные беруться с базы данных (permissions.sql) в seeds PermissionsTableSeeder.php, далее идет обращение и проверка через abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden'); в App/Http/Controllers/*Controller.php
 ## Функционал
