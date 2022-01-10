@@ -1,4 +1,5 @@
 @foreach($comments as $comment)
+@if($comment->show == '1')
     <div class="display-comment" @if($comment->parent_id != null) style="margin-left:40px;" @endif>
         <strong>{{ $comment->user->name }}</strong>
         <p>{{ $comment->body }}</p>
@@ -31,4 +32,5 @@
         </form>
         @include('blogs.commentsDisplay', ['comments' => $comment->replies])
     </div>
+    @endif
 @endforeach

@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('tape_id')->unsigned();
             $table->integer('parent_id')->unsigned()->nullable();
-            $table->integer('show')->default(NULL)->comment('Одобрить комментарий 0 - нет 1 - да');
+            $table->integer('show')->default(0)->comment('Одобрить комментарий 0 - нет 1 - да');
             $table->text('body');
             $table->timestamps();
             $table->softDeletes();
