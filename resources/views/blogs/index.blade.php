@@ -49,36 +49,55 @@
 
             </div>
 
-            <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 @if(count($tapes) > 0)
-                @foreach ($tapes as $tape)
-                <a href="./blog/{{ $tape->id }}">
-                    <article class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
-                        <div class="relative w-full h-80 md:h-64 lg:h-44">
-                            <img src="{{ $tape->link_images_1 }}" alt="" class="w-full h-full object-center object-cover">
-                        </div>
-                        <div class="px-3 py-4">
-                            <h3 class="border-b-2 text-1x2 text-indigo-600 pb-2">
-                                {{ $tape->title }}
-                            </h3>
-                            <p class="text-base font-semibold text-gray-900 group-hover:text-indigo-600">
-                                {!! Str::limit($tape->content, 2000) !!}
+                @foreach($tapes as $tape)
+                <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
+
+                    <a href="./blog/{{ $tape->id }}" class="w-full block h-full">
+                        <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover" />
+                        <div class="bg-white dark:bg-gray-800 w-full p-4">
+                            <p class="text-indigo-500 text-md font-medium">
+                                Тег
                             </p>
+                            <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
+                            {{ $tape->title }}
+                            </p>
+                            <p class="text-gray-400 dark:text-gray-300 font-light text-md">
+                            {!! Str::limit($tape->content, 100) !!}
+                            </p>
+                            <div class="flex items-center mt-4">
+                                <a href="#" class="block relative">
+                                    <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 " />
+                                </a>
+                                <div class="flex flex-col justify-between ml-4 text-sm">
+                                    <p class="text-gray-800 dark:text-white">
+                                        Jean Jacques
+                                    </p>
+                                    <p class="text-gray-400 dark:text-gray-300">
+                                        20 mars 2029 - 6 min read
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </article>
-                </a>
-                @endforeach
-                @else
-                <div class="title">
-                    <p class="text-4xl font-bold text-gray-800 mb-4">
-                        Нет последних новостей
-                    </p>
-                    <p class="text-2xl font-light text-gray-400">
-                        Но Вы все равно возвращайтесь!
-                    </p>
+                    </a> 
                 </div>
-                @endif
-            </section>
+                @endforeach
+                
+                @else
+            </div>
+            
+            <div class="title">
+                <p class="text-4xl font-bold text-gray-800 mb-4">
+                    Нет последних новостей
+                </p>
+                <p class="text-2xl font-light text-gray-400">
+                    Но Вы все равно возвращайтесь!
+                </p>
+            </div>
+            @endif
             <div class="mt-4 p-4 box has-text-centered">
                 {{ $tapes->links() }}
             </div>
