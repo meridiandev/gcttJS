@@ -63,10 +63,10 @@
                                 Тег
                             </p>
                             <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                            {{ $tape->title }}
+                                {{ $tape->title }}
                             </p>
                             <p class="text-gray-400 dark:text-gray-300 font-light text-md">
-                            {!! Str::limit($tape->content, 100) !!}
+                                {!! Str::limit($tape->content, 100) !!}
                             </p>
                             <div class="flex items-center mt-4">
                                 <a href="#" class="block relative">
@@ -82,13 +82,13 @@
                                 </div>
                             </div>
                         </div>
-                    </a> 
+                    </a>
                 </div>
                 @endforeach
-                
+
                 @else
             </div>
-            
+
             <div class="title">
                 <p class="text-4xl font-bold text-gray-800 mb-4">
                     Нет последних новостей
@@ -103,6 +103,9 @@
             </div>
         </article>
     </section>
+</body>
+
+</html>
 
 
 
@@ -110,159 +113,155 @@
 
 
 
+{{--<div class="font-sans text-gray-900 antialiased">--}}
 
-    {{--<div class="font-sans text-gray-900 antialiased">--}}
+{{--<div class="w-full bg-white p-12">--}}
 
-    {{--<div class="w-full bg-white p-12">--}}
+{{-- <div class="header flex items-end justify-between mb-12">--}}
 
-    {{-- <div class="header flex items-end justify-between mb-12">--}}
+{{-- <div class="title">--}}
+{{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
+{{-- Последние новости--}}
+{{-- </p>--}}
+{{-- <p class="text-2xl font-light text-gray-400">--}}
+{{-- Все актуальные новости и события ИТКуб42 в нашем блоге!--}}
+{{-- </p>--}}
+{{-- </div>--}}
+{{-- <div class="text-end">--}}
+{{-- <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">--}}
+{{-- <div class=" relative ">--}}
+{{-- <input type="text" id="&quot;form-subscribe-Search" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Введите название статьи"/>--}}
+{{-- </div>--}}
+{{-- <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
+{{-- Найти--}}
+{{-- </button>--}}
+{{-- </form>--}}
+{{-- </div>--}}
+{{-- </div>--}}
 
-    {{-- <div class="title">--}}
-    {{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
-    {{-- Последние новости--}}
-    {{-- </p>--}}
-    {{-- <p class="text-2xl font-light text-gray-400">--}}
-    {{-- Все актуальные новости и события ИТКуб42 в нашем блоге!--}}
-    {{-- </p>--}}
-    {{-- </div>--}}
-    {{-- <div class="text-end">--}}
-    {{-- <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">--}}
-    {{-- <div class=" relative ">--}}
-    {{-- <input type="text" id="&quot;form-subscribe-Search" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Введите название статьи"/>--}}
-    {{-- </div>--}}
-    {{-- <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
-    {{-- Найти--}}
-    {{-- </button>--}}
-    {{-- </form>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
+{{-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">--}}
+{{-- @if(count($tapes) > 0)--}}
+{{-- @foreach ($tapes as $tape)--}}
+{{-- @php--}}
+{{-- $k = 0;--}}
+{{-- @endphp--}}
+{{-- @switch($k)--}}
+{{-- @case(0)--}}
+{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
+{{-- <a href="#" class="w-full block h-full">--}}
+{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
+{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
+{{-- <p class="text-indigo-500 text-md font-medium">--}}
+{{-- ИТКуб42--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
+{{-- {{ $tape->title }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
+{{-- {!! Str::limit($tape->content, 5000) !!}--}}
+{{-- </p>--}}
+{{-- <div class="flex items-center mt-4">--}}
+{{-- <a href="#" class="block relative">--}}
+{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
+{{-- </a>--}}
+{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
+{{-- <p class="text-gray-800 dark:text-white">--}}
+{{-- {{ $tape->author }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300">--}}
+{{-- {{ $tape->created_at }}--}}
+{{-- </p>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </a>--}}
+{{-- </div>--}}
+{{-- @break--}}
+{{-- @case(1)--}}
+{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
+{{-- <a href="#" class="w-full block h-full">--}}
+{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
+{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
+{{-- <p class="text-indigo-500 text-md font-medium">--}}
+{{-- ИТКуб42--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
+{{-- {{ $tape->title }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
+{{-- {!! Str::limit($tape->content, 5000) !!}--}}
+{{-- </p>--}}
+{{-- <div class="flex items-center mt-4">--}}
+{{-- <a href="#" class="block relative">--}}
+{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
+{{-- </a>--}}
+{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
+{{-- <p class="text-gray-800 dark:text-white">--}}
+{{-- {{ $tape->author }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300">--}}
+{{-- {{ $tape->created_at }}--}}
+{{-- </p>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </a>--}}
+{{-- </div>--}}
+{{-- @break--}}
+{{-- @case(2)--}}
+{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
+{{-- <a href="#" class="w-full block h-full">--}}
+{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
+{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
+{{-- <p class="text-indigo-500 text-md font-medium">--}}
+{{-- ИТКуб42--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
+{{-- {{ $tape->title }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
+{{-- {!! Str::limit($tape->content, 5000) !!}--}}
+{{-- </p>--}}
+{{-- <div class="flex items-center mt-4">--}}
+{{-- <a href="#" class="block relative">--}}
+{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
+{{-- </a>--}}
+{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
+{{-- <p class="text-gray-800 dark:text-white">--}}
+{{-- {{ $tape->author }}--}}
+{{-- </p>--}}
+{{-- <p class="text-gray-400 dark:text-gray-300">--}}
+{{-- {{ $tape->created_at }}--}}
+{{-- </p>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </div>--}}
+{{-- </a>--}}
+{{-- </div>--}}
+{{-- @break--}}
+{{-- @endswitch--}}
+{{-- @if ($k >= 2)--}}
+{{-- @php--}}
+{{-- $k = 0;--}}
+{{-- @endphp--}}
+{{-- @else--}}
+{{-- @php--}}
+{{-- $k++;--}}
+{{-- @endphp--}}
+{{-- @endif--}}
 
-    {{-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">--}}
-    {{-- @if(count($tapes) > 0)--}}
-    {{-- @foreach ($tapes as $tape)--}}
-    {{-- @php--}}
-    {{-- $k = 0;--}}
-    {{-- @endphp--}}
-    {{-- @switch($k)--}}
-    {{-- @case(0)--}}
-    {{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-    {{-- <a href="#" class="w-full block h-full">--}}
-    {{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-    {{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-    {{-- <p class="text-indigo-500 text-md font-medium">--}}
-    {{-- ИТКуб42--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-    {{-- {{ $tape->title }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-    {{-- {!! Str::limit($tape->content, 5000) !!}--}}
-    {{-- </p>--}}
-    {{-- <div class="flex items-center mt-4">--}}
-    {{-- <a href="#" class="block relative">--}}
-    {{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-    {{-- </a>--}}
-    {{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-    {{-- <p class="text-gray-800 dark:text-white">--}}
-    {{-- {{ $tape->author }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300">--}}
-    {{-- {{ $tape->created_at }}--}}
-    {{-- </p>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </a>--}}
-    {{-- </div>--}}
-    {{-- @break--}}
-    {{-- @case(1)--}}
-    {{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-    {{-- <a href="#" class="w-full block h-full">--}}
-    {{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-    {{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-    {{-- <p class="text-indigo-500 text-md font-medium">--}}
-    {{-- ИТКуб42--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-    {{-- {{ $tape->title }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-    {{-- {!! Str::limit($tape->content, 5000) !!}--}}
-    {{-- </p>--}}
-    {{-- <div class="flex items-center mt-4">--}}
-    {{-- <a href="#" class="block relative">--}}
-    {{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-    {{-- </a>--}}
-    {{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-    {{-- <p class="text-gray-800 dark:text-white">--}}
-    {{-- {{ $tape->author }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300">--}}
-    {{-- {{ $tape->created_at }}--}}
-    {{-- </p>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </a>--}}
-    {{-- </div>--}}
-    {{-- @break--}}
-    {{-- @case(2)--}}
-    {{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-    {{-- <a href="#" class="w-full block h-full">--}}
-    {{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-    {{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-    {{-- <p class="text-indigo-500 text-md font-medium">--}}
-    {{-- ИТКуб42--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-    {{-- {{ $tape->title }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-    {{-- {!! Str::limit($tape->content, 5000) !!}--}}
-    {{-- </p>--}}
-    {{-- <div class="flex items-center mt-4">--}}
-    {{-- <a href="#" class="block relative">--}}
-    {{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-    {{-- </a>--}}
-    {{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-    {{-- <p class="text-gray-800 dark:text-white">--}}
-    {{-- {{ $tape->author }}--}}
-    {{-- </p>--}}
-    {{-- <p class="text-gray-400 dark:text-gray-300">--}}
-    {{-- {{ $tape->created_at }}--}}
-    {{-- </p>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </div>--}}
-    {{-- </a>--}}
-    {{-- </div>--}}
-    {{-- @break--}}
-    {{-- @endswitch--}}
-    {{-- @if ($k >= 2)--}}
-    {{-- @php--}}
-    {{-- $k = 0;--}}
-    {{-- @endphp--}}
-    {{-- @else--}}
-    {{-- @php--}}
-    {{-- $k++;--}}
-    {{-- @endphp--}}
-    {{-- @endif--}}
+{{-- @endforeach--}}
+{{-- @else--}}
+{{-- <div class="title">--}}
+{{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
+{{-- Нет последних новостей--}}
+{{-- </p>--}}
+{{-- <p class="text-2xl font-light text-gray-400">--}}
+{{-- Но Вы все равно возвращайтесь!--}}
+{{-- </p>--}}
+{{-- </div>--}}
+{{-- @endif--}}
+{{-- </div>--}}
 
-    {{-- @endforeach--}}
-    {{-- @else--}}
-    {{-- <div class="title">--}}
-    {{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
-    {{-- Нет последних новостей--}}
-    {{-- </p>--}}
-    {{-- <p class="text-2xl font-light text-gray-400">--}}
-    {{-- Но Вы все равно возвращайтесь!--}}
-    {{-- </p>--}}
-    {{-- </div>--}}
-    {{-- @endif--}}
-    {{-- </div>--}}
-
-    {{--</div>--}}
-    {{--</div>--}}
-
-    {{--</body>--}}
-    {{--</html>--}}
+{{--</div>--}}
+{{--</div>--}}

@@ -15,7 +15,9 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        //
+        $timetables = Timetable::latest()->paginate(5);
+        return view('timetables.index', compact('timetables'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
