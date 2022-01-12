@@ -27,6 +27,7 @@ class CreateTapesTable extends Migration
             $table->string('link_images_4', 300)->unsignedInteger()->default();
             $table->string('link_images_5', 300)->unsignedInteger()->default();
             $table->string('content_access')->unsignedInteger()->default(0);
+            $table->unsignedInteger('views')->default(1);
             $table->boolean('organization_show')->unsignedInteger()->default(10);
             $table->boolean('published')->unsignedInteger()->default(0);
             $table->boolean('published_slider_status')->unsignedInteger()->default(0);

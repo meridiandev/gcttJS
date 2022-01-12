@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Cassandra\Tuple;
 use Illuminate\Http\Request;
 use App\Models\Tape;
-use app\Models\User;
+use App\Models\User;
+use App\Models\TapeView;
 
 class BlogController extends Controller
 {
@@ -18,6 +19,19 @@ class BlogController extends Controller
 
     public function show(Tape $tape)
     {
+        //$tape = Tape::with('category', 'user')->withCount('favorites')->find($tape->id);
+
+        // Проверка просмотра пользователем, антинакрутка просмотров одним и тем же пользователем
+        if($tape->showTape())
+        {
+            return view('blogs.show')->with('tape', $tape);
+        }
+
+        // + 1
+        $tape->increment('views');
+        // Логирование просмотров
+        TapeView::createViewLog($tape);
+
         return view('blogs.show')->with('tape', $tape);
     }
 
