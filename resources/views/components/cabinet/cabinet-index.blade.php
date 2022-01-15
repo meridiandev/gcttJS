@@ -1,4 +1,4 @@
-<main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
+<main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden flex">
     <div class="flex items-start justify-between">
         {{-- Left mainMenu--}}
         <x-cabinet.cabinetLeftMainMenu x/>

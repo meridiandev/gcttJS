@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12">
     <div class="flex flex-col max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
         <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
             Create a new account
@@ -64,58 +64,11 @@
                             Blue
                         </span>
                     </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-pink-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Pink
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-green-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Green
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Orange
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-purple-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Purple
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-black checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Black
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-indigo-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Indigo
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-red-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Red
-                        </span>
-                    </label>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Gray
-                        </span>
-                    </label>
                 </div>
             </div>
         </div>
     </div>
+</section>
 </body>
 
 </html>

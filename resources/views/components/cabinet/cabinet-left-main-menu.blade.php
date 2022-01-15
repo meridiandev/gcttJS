@@ -1,4 +1,4 @@
-<div class="relative bg-white dark:bg-gray-800">
+<div class="flex bg-white dark:bg-gray-800">
     <div class="flex flex-col sm:flex-row sm:justify-around">
         <div class="w-72 h-screen">
             <div class="flex items-center justify-start mx-6 mt-10">
