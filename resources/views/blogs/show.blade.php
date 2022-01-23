@@ -38,8 +38,9 @@
                         </div>
                     </div>
                     <p class="mx-auto text-base font-medium leading-relaxed text-gray-800">{!! $tape->content !!}</p>
-                
 
+                    <br>
+                    <hr />
 
                     <h4>Показать комментарии</h4>
 
@@ -58,8 +59,6 @@
                             Отправить
                         </button>
                     </form>
-
-
                 <div class="block mt-4">
                <a href="{{ route('index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к новостям') }}</a>
             </div>

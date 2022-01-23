@@ -19,56 +19,88 @@
 </head>
 
 <body>
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12">
-    <div class="flex flex-col max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
-        <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
-            Create a new account
-        </div>
-        <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
-            Already have an account ?
-            <a href="#" target="_blank" class="text-sm text-blue-500 underline hover:text-blue-700">
-                Sign in
-            </a>
-        </span>
-        <div class="p-6 mt-8">
-            <form action="#">
-                <div class="flex flex-col mb-2">
-                    <div class=" relative ">
-                        <input type="text" id="create-account-pseudo" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="pseudo" placeholder="Pseudo" />
-                    </div>
-                </div>
-                <div class="flex gap-4 mb-2">
-                    <div class=" relative ">
-                        <input type="text" id="create-account-first-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="First name" placeholder="First name" />
-                    </div>
-                    <div class=" relative ">
-                        <input type="text" id="create-account-last-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" name="Last name" placeholder="Last name" />
-                    </div>
-                </div>
-                <div class="flex flex-col mb-2">
-                    <div class=" relative ">
-                        <input type="text" id="create-account-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email" />
-                    </div>
-                </div>
-                <div class="flex w-full my-4">
-                    <button type="submit" class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                        Login
-                    </button>
-                </div>
-            </form>
-            <div class="flex items-center justify-center mt-6">
-                <div>
-                    <label class="flex items-center space-x-3 mb-3">
-                        <input type="checkbox" name="checked-demo" class="form-tick appearance-none bg-white bg-check h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-500 checked:border-transparent focus:outline-none" />
-                        <span class="text-gray-700 dark:text-white font-normal">
-                            Blue
-                        </span>
-                    </label>
-                </div>
+<!-- component -->
+<div class="flex justify-center items-center w-full bg-blue-400">
+    <div class="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
+        <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">{{ __('Записаться!') }}</h1>
+        <form action="/" method="post">
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">{{ __('Фамилия') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name">
             </div>
-        </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="last_name">{{ __('Имя') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="lpatronymic">{{ __('Отчество') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="patronymic" id="patronymic">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="child_date">{{ __('Дата рожд. уч-ка') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="date" name="child_date" id="child_date">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="locality">{{ __('Населенный пункт') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="locality" id="locality">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="registration_address">{{ __('Адрес регистрации') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="registration_address" id="registration_address">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="edu_class">{{ __('Класс/Курс') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="edu_class" placeholder="" id="edu_class">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="place_study">{{ __('Место учебы') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="place_study" id="place_study">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="parent">{{ __('Ф.И.О родителя') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="text" name="parent" id="parent">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="email">{{ __('Email (электронная почта)') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="email">{{ __('Номер телефона (родителя)') }}</label>
+                <input class="border py-2 px-3 text-grey-800" type="phone" name="phone_" id="email">
+            </div>
+            {{-- <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="password">Password</label>
+                <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
+            </div> --}}
+            {{-- <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="Date">Date</label>
+                <input class="border py-2 px-3 text-grey-800" type="date" name="date" id="date">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="File">File</label>
+                <input class="border py-2 px-3 text-grey-800" type="file" name="file" id="file">
+            </div>
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="color">Range</label>
+                <input class="border py-2 text-grey-800" type="range" name="range" id="range">
+            </div> --}}
+            <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="textarea">{{ __('Комментарий к форме (не обязательно)') }}</label>
+                <textarea class="border py-2 px-3 text-grey-800" name="textarea" id="textarea"></textarea>
+            </div>
+            {{-- <div class="flex flex-col mb-4">
+                <label class="mb-2 font-bold text-lg text-gray-900" for="Select">Select</label>
+                <select class="border py-2 px-3 text-grey-800">
+                    <option>Surabaya</option>
+                    <option>Jakarta</option>
+                    <option>Bandung</option>
+                    <option>Mojokerto</option>
+                </select>
+            </div> --}}
+            <button class="block bg-green-400 hover:bg-green-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Save</button>
+        </form>
     </div>
-</section>
+</div>
 </body>
 
 </html>

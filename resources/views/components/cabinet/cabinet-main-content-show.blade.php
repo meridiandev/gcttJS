@@ -4,10 +4,7 @@
         {{ __('Добро пожаловать,' ) }} {{ Auth::user()->name }}
     </h1>
     <h2 class="text-md text-gray-400">
-        @if Auth::user()->name 
         {{ __('Учительская доска') }}
-        @elseif
-        @endif
     </h2>
     <div class="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
         {{-- teacher tasks  views/components/cabinet/teacher/task-list --}}

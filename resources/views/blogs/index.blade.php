@@ -23,8 +23,6 @@
 
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12">
-        <article>
-            {{-- <h2 class="text-2xl font-extrabold text-gray-900">OUR COURSES</h2>--}}
             <div class="header flex items-end justify-between mb-12">
 
                 <div class="title">
@@ -49,45 +47,40 @@
 
             </div>
 
-
-
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+            <main class="py-12 md:px-20 sm:px-14 px-6">
                 @if(count($tapes) > 0)
                 @foreach($tapes as $tape)
-                <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-
-                    <a href="./blog/{{ $tape->id }}" class="w-full block h-full">
-                        <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover" />
-                        <div class="bg-white dark:bg-gray-800 w-full p-4">
-                            <p class="text-indigo-500 text-md font-medium">
-                                Тег
-                            </p>
-                            <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                                {{ $tape->title }}
-                            </p>
-                            <p class="text-gray-400 dark:text-gray-300 font-light text-md">
-                                {!! Str::limit($tape->content, 100) !!}
-                            </p>
-                            <div class="flex items-center mt-4">
-                                <a href="#" class="block relative">
-                                    <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 " />
-                                </a>
-                                <div class="flex flex-col justify-between ml-4 text-sm">
-                                    <p class="text-gray-800 dark:text-white">
-                                        Jean Jacques
-                                    </p>
-                                    <p class="text-gray-400 dark:text-gray-300">
-                                        20 mars 2029 - 6 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="sm:flex items-center shadow-md mt-10">
+                  {{-- <div>
+                    <img class="max-h-117 w-80 object-cover" src="{{ $tape->link_images_1 }}" alt="" />
+                  </div> --}}
+                  <div class="md:px-10 sh sm:px-5">
+                    <h1 class="text-gray-800 font-bold text-2xl my-2">{{ $tape->title }}</h1>
+                    {{-- <p class="text-gray-700 mb-2 md:mb-6">XXXXXX{!! Str::limit($tape->content, 100) !!}</p> --}}
+                    <p class="text-gray-700 mb-2 md:mb-6">{!! Str::limit($tape->content, 3000) !!}</p>
+                    <div class="flex justify-between mb-2">
+                    <br>
+                      <span class="font-thin text-sm">{{ $tape->created_at }}</span>
+                      <span class="sm:block hidden mb-2 text-gray-800 font-bold">
+                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                            <a href="./blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>
+                        </button>
+                        </span>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 cursor-pointer" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </div>
+                  </div>
                 </div>
                 @endforeach
-
                 @else
-            </div>
+            </main>
 
             <div class="title">
                 <p class="text-4xl font-bold text-gray-800 mb-4">
@@ -101,167 +94,7 @@
             <div class="mt-4 p-4 box has-text-centered">
                 {{ $tapes->links() }}
             </div>
-        </article>
     </section>
 </body>
 
 </html>
-
-
-
-
-
-
-
-{{--<div class="font-sans text-gray-900 antialiased">--}}
-
-{{--<div class="w-full bg-white p-12">--}}
-
-{{-- <div class="header flex items-end justify-between mb-12">--}}
-
-{{-- <div class="title">--}}
-{{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
-{{-- Последние новости--}}
-{{-- </p>--}}
-{{-- <p class="text-2xl font-light text-gray-400">--}}
-{{-- Все актуальные новости и события ИТКуб42 в нашем блоге!--}}
-{{-- </p>--}}
-{{-- </div>--}}
-{{-- <div class="text-end">--}}
-{{-- <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">--}}
-{{-- <div class=" relative ">--}}
-{{-- <input type="text" id="&quot;form-subscribe-Search" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Введите название статьи"/>--}}
-{{-- </div>--}}
-{{-- <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
-{{-- Найти--}}
-{{-- </button>--}}
-{{-- </form>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-
-{{-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">--}}
-{{-- @if(count($tapes) > 0)--}}
-{{-- @foreach ($tapes as $tape)--}}
-{{-- @php--}}
-{{-- $k = 0;--}}
-{{-- @endphp--}}
-{{-- @switch($k)--}}
-{{-- @case(0)--}}
-{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-{{-- <a href="#" class="w-full block h-full">--}}
-{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-{{-- <p class="text-indigo-500 text-md font-medium">--}}
-{{-- ИТКуб42--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-{{-- {{ $tape->title }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-{{-- {!! Str::limit($tape->content, 5000) !!}--}}
-{{-- </p>--}}
-{{-- <div class="flex items-center mt-4">--}}
-{{-- <a href="#" class="block relative">--}}
-{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-{{-- </a>--}}
-{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-{{-- <p class="text-gray-800 dark:text-white">--}}
-{{-- {{ $tape->author }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300">--}}
-{{-- {{ $tape->created_at }}--}}
-{{-- </p>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </a>--}}
-{{-- </div>--}}
-{{-- @break--}}
-{{-- @case(1)--}}
-{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-{{-- <a href="#" class="w-full block h-full">--}}
-{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-{{-- <p class="text-indigo-500 text-md font-medium">--}}
-{{-- ИТКуб42--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-{{-- {{ $tape->title }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-{{-- {!! Str::limit($tape->content, 5000) !!}--}}
-{{-- </p>--}}
-{{-- <div class="flex items-center mt-4">--}}
-{{-- <a href="#" class="block relative">--}}
-{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-{{-- </a>--}}
-{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-{{-- <p class="text-gray-800 dark:text-white">--}}
-{{-- {{ $tape->author }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300">--}}
-{{-- {{ $tape->created_at }}--}}
-{{-- </p>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </a>--}}
-{{-- </div>--}}
-{{-- @break--}}
-{{-- @case(2)--}}
-{{-- <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">--}}
-{{-- <a href="#" class="w-full block h-full">--}}
-{{-- <img alt="blog photo" src="{{ $tape->link_images_1 }}" class="max-h-40 w-full object-cover"/>--}}
-{{-- <div class="bg-white dark:bg-gray-800 w-full p-4">--}}
-{{-- <p class="text-indigo-500 text-md font-medium">--}}
-{{-- ИТКуб42--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">--}}
-{{-- {{ $tape->title }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300 font-light text-md">--}}
-{{-- {!! Str::limit($tape->content, 5000) !!}--}}
-{{-- </p>--}}
-{{-- <div class="flex items-center mt-4">--}}
-{{-- <a href="#" class="block relative">--}}
-{{-- <img alt="profil" src="/images/person/6.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>--}}
-{{-- </a>--}}
-{{-- <div class="flex flex-col justify-between ml-4 text-sm">--}}
-{{-- <p class="text-gray-800 dark:text-white">--}}
-{{-- {{ $tape->author }}--}}
-{{-- </p>--}}
-{{-- <p class="text-gray-400 dark:text-gray-300">--}}
-{{-- {{ $tape->created_at }}--}}
-{{-- </p>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </div>--}}
-{{-- </a>--}}
-{{-- </div>--}}
-{{-- @break--}}
-{{-- @endswitch--}}
-{{-- @if ($k >= 2)--}}
-{{-- @php--}}
-{{-- $k = 0;--}}
-{{-- @endphp--}}
-{{-- @else--}}
-{{-- @php--}}
-{{-- $k++;--}}
-{{-- @endphp--}}
-{{-- @endif--}}
-
-{{-- @endforeach--}}
-{{-- @else--}}
-{{-- <div class="title">--}}
-{{-- <p class="text-4xl font-bold text-gray-800 mb-4">--}}
-{{-- Нет последних новостей--}}
-{{-- </p>--}}
-{{-- <p class="text-2xl font-light text-gray-400">--}}
-{{-- Но Вы все равно возвращайтесь!--}}
-{{-- </p>--}}
-{{-- </div>--}}
-{{-- @endif--}}
-{{-- </div>--}}
-
-{{--</div>--}}
-{{--</div>--}}
