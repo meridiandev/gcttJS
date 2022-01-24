@@ -26,15 +26,30 @@
 
                 <div class="w-full mx-auto lg:w-1/2">
                     <h1 class="mx-auto mb-6 text-2xl font-semibold text-black lg:text-3xl">{{ ucfirst($tape->title) }}</h1>
+                    <div class="flex py-2 mb-4 w-full">
+                        <p class="text-gray-400 dark:text-gray-300">
+                            <div class="flex justify-end space-x-2">
+                                <svg class="h-6  w-6 text-purple-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />  <circle cx="12" cy="12" r="3" /></svg>
+                            </div>
+                            {{ $tape->views }}
+                        </p>
+                        <p class="text-gray-400 dark:text-gray-300">
+                        <svg class="h-5 w-5 text-purple-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                        </p>
+                        22
+                        {{-- <p class="text-gray-400 dark:text-gray-300">
+                            <div class="flex justify-end space-x-2">
+                            <svg class="h-6 w-6 text-purple-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />  <line x1="3" y1="9" x2="21" y2="9" />  <line x1="9" y1="21" x2="9" y2="9" /></svg>
+                            </div>
+                            {{ $tape->created_at }}
+                        </p> --}}
+                    </div>
                     <img class="rounded-sm rounded-lg" src="{{ $tape->link_images_1 }}" />
 
                     <div class="flex py-2 mb-4 w-full">
                         <div>
                             <p class="text-sm font-semibold tracking-tight text-black">{{ $tape->author }}</p>
                             <p class="text-sm font-normal tracking-tight text-gray-600">Автор статьи</p>
-                            <p class="text-gray-400 dark:text-gray-300">
-                                {{ $tape->created_at }}
-                            </p>
                         </div>
                     </div>
                     <p class="mx-auto text-base font-medium leading-relaxed text-gray-800">{!! $tape->content !!}</p>
