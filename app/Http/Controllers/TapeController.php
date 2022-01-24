@@ -54,6 +54,7 @@ class TapeController extends Controller
             'content_main_page.required' => 'Введите текст заголовка',
             'content_main_page.max' => 'Вы ввели более 300 символов!',
             'content.required' => 'Введите текст статьи',
+            'date_published.required' => 'Введите дату публикации',
             //'content.max' => 'Введите менее 15000 символов!',
             //'published.required' => 'Вы не опублековали статью!',
             //'published_slider_status.required' => 'Вы не опублековали статью в слайдер!'
@@ -66,6 +67,7 @@ class TapeController extends Controller
         $tape->link_images_1 = $request->get('link_images_1');
         $tape->content_main_page = $request->get('content_main_page');
         $tape->content = $request->get('content');
+        $tape->date_published = $request->get('date_published');
         $tape->published = $request->get('published');
         $tape->published_slider_status = $request->get('published_slider_status');
         $tape->author = $user;

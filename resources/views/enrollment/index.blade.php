@@ -88,6 +88,11 @@
                 <label class="mb-2 font-bold text-lg text-gray-900" for="textarea">{{ __('Комментарий к форме (не обязательно)') }}</label>
                 <textarea class="border py-2 px-3 text-grey-800" name="textarea" id="textarea"></textarea>
             </div>
+
+            <label class="flex items-center">
+                <input type="checkbox" class="form-checkbox ">
+                <span class="ml-2 text-blueGray-500">checkbox </span>
+            </label>
             {{-- <div class="flex flex-col mb-4">
                 <label class="mb-2 font-bold text-lg text-gray-900" for="Select">Select</label>
                 <select class="border py-2 px-3 text-grey-800">
