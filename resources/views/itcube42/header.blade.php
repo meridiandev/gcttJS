@@ -9,6 +9,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Главная</a></li>
+                <li><a class="nav-link scrollto" href="/blog">Блог</a></li>
                 <li><a class="nav-link scrollto" href="#about">О нас</a></li>
                 <li><a class="nav-link scrollto" href="#services">Направления</a></li>
                 <li><a class="nav-link scrollto" href="#faq">Вопрос / Ответ</a></li>

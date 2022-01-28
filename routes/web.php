@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('comments', \App\Http\Controllers\CommentController::class);
     //Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
     Route::resource('students', \App\Http\Controllers\StudentController::class);
+    Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
 
     // Clear cache website
     Route::get('/clear-cache', function() {

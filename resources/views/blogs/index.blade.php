@@ -49,6 +49,7 @@
 
             <main class="py-12 md:px-20 sm:px-14 px-6">
                 @if(count($tapes) > 0)
+                {{-- @if(\Carbon\Carbon::parse($tapes->date_published)->get(now())) --}}
                 @foreach($tapes as $tape)
                 <div class="sm:flex items-center shadow-md mt-10">
                   {{-- <div>
@@ -83,7 +84,7 @@
             </div>
             @endif
             <div class="mt-4 p-4 box has-text-centered">
-                {{ $tapes->links('pagination::tailwind') }}
+                {{-- {{ $tapes->links('pagination::tailwind') }} --}}
             </div>
     </section>
 </body>

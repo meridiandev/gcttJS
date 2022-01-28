@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTapeRequest;
 use App\Http\Requests\UpdateTapeRequest;
+use App\Models\Comment;
 use App\Models\Tape;
 use app\Models\User;
 use Illuminate\Http\Request;
@@ -68,6 +69,7 @@ class TapeController extends Controller
         $tape->content_main_page = $request->get('content_main_page');
         $tape->content = $request->get('content');
         $tape->date_published = $request->get('date_published');
+        $tape->comments_shows = $request->get('comments_shows');
         $tape->published = $request->get('published');
         $tape->published_slider_status = $request->get('published_slider_status');
         $tape->author = $user;
@@ -82,7 +84,9 @@ class TapeController extends Controller
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('tapes.show', compact('tape'));
+        $comments = Comment::all();
+
+        return view('tapes.show', compact('tape', 'comments'));
     }
 
     public function edit(Tape $tape)
@@ -106,5 +110,14 @@ class TapeController extends Controller
         $tape->delete();
 
         return redirect()->route('tapes.index');
+    }
+
+    public function updateCommentsStatus(Request $request)
+    {
+        $id = $request->show;
+        $model = new Comment();
+        //assumed your column is "approved" and approved status is "0"
+        $updated = $model->find($id)->update(['approved' => 1]);
+        return $updated;
     }
 }

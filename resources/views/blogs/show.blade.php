@@ -76,10 +76,11 @@
                     <br>
                     <hr />
 
-                    <h4>Показать комментарии</h4>
-
+                    @if ($tape->comments_shows == '0')
+                    <h4>Комментарии отключены</h4>
                     @include('blogs.commentsDisplay', ['comments' => $tape->comments, 'tape_id' => $tape->id])
-
+                    @elseif ($tape->comments_shows == '1')
+                    <h4>Показать комментарии</h4>
                     <hr />
                     <h4>Добавить комментарий</h4>
                     <form method="post" action="{{ route('comments.store') }}">
@@ -96,6 +97,7 @@
                             Отправить
                         </button>
                     </form>
+                    @endif
                     <div class="block mt-4">
                         <a href="{{ route('index') }}"
                             class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к новостям') }}</a>

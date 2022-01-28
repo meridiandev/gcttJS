@@ -11,12 +11,13 @@ class CommentController extends Controller
     {
         $request->validate(
             $rules = [
-            'body'=>'required|unique:comments|min:5|max:255',
-        ],
+                'body' => 'required|unique:comments|min:5|max:255',
+            ],
             $error_messages = [
-            'body.required' => 'Введите текст комментария',
-            'body.min' => 'Введите более 5 символов',
-            'body.max' => 'Введите менее 255 символов']
+                'body.required' => 'Введите текст комментария',
+                'body.min' => 'Введите более 5 символов',
+                'body.max' => 'Введите менее 255 символов'
+            ]
         );
 
 
@@ -28,13 +29,20 @@ class CommentController extends Controller
         return back();
     }
 
+    public function changeStatus(Request $request)
+    {
+        $comment = Comment::find($request->show);
+        $comment->status = $request->status;
+        $comment->save();
+
+        return response()->json(['success'=>'Status change successfully.']);
+    }
+
     public function edit(Comment $comment)
     {
-
     }
 
     public function destroy(Comment $comment)
     {
-
     }
 }

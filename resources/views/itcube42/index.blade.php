@@ -29,7 +29,7 @@
 @include('itcube42/slider')
 
 <main id="main">
-{{--@include('itcube42/featured')--}}
+{{-- @include('itcube42/featured') --}}
 @include('itcube42/about')
 @include('itcube42/skills')
 @include('itcube42/counts')

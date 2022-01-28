@@ -90,9 +90,22 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="relative pt-4">
-                                <label for="date_published" class="block text-sm font-medium text-gray-700">{{ __('Дата публикации') }}</label>
-                                <input type="date" id="date_published" name="date_published" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <label for="date_published"
+                                    class="block text-sm font-medium text-gray-700">{{ __('Дата публикации') }}</label>
+                                <input type="date" id="date_published" name="date_published"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="comments_shows"
+                                class="block text-sm font-medium text-gray-700">{{ __('Комментарии разрешены (по умолчанию - нет)') }}</label>
+                            <select id="comments_shows" name="comments_shows" autocomplete="comments_shows"
+                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="0">{{ __('Выберите значанеи') }}</option>
+                                <option value="0">{{ __('Нет') }}</option>
+                                <option value="1">{{ __('Да') }}</option>
+                            </select>
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">

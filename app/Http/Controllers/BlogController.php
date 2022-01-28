@@ -12,7 +12,12 @@ class BlogController extends Controller
 {
     public function index(Tape $tape)
     {
-        $tapes = Tape::orderBy('created_at', 'asc')->paginate(10);
+
+        //$blogs = Blog::latest()->get();
+        //return view('blog', ['blogs' => $blogs ]);
+
+        $tapes = Tape::latest()->get();
+        //$tapes = Tape::orderBy('created_at', 'asc')->paginate(10);
         return view('blogs.index')->with('tapes', $tapes);
     }
 
