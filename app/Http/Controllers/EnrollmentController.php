@@ -13,9 +13,10 @@ class EnrollmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Enrollment $enrollment)
     {
-        return view('enrollment.index');
+        $enrollments = Enrollment::latest()->get();
+        return view('enrollment.index', compact('enrollments'));
     }
 
     /**

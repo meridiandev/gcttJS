@@ -27,7 +27,7 @@ use App\Http\Livewire\Tapes;
     Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
     //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
-    //Route::get('/enrollment/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
+    Route::get('/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 
 //});
@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
     Route::resource('students', \App\Http\Controllers\StudentController::class);
     Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
+
+    Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');
 
     // Clear cache website
     Route::get('/clear-cache', function() {

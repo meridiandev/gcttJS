@@ -21,14 +21,15 @@ class CreateEnrollmentsTable extends Migration
             $table->string('patronymic', 200)->comment('Отчество');
             $table->boolean('gender')->comment('Пол');
             $table->binary('data_of_birth')->comment('Дата рождения');
-            $table->string('home_address', 200)->default(NULL)->comment('Населенный пункт');
-            $table->string('home_address', 200)->default(NULL)->comment('Адрес регистрации');
+            $table->string('home_address_1', 200)->default(NULL)->comment('Населенный пункт');
+            $table->string('home_address_2', 200)->default(NULL)->comment('Адрес регистрации');
             $table->string('class_education', 200)->comment('Класс/Курс');
             $table->string('location_education', 500)->comment('Место учебы');
-            $table->string('surname', 300)->comment('Ф.И.О родителя');
+            $table->string('parents', 300)->comment('Ф.И.О родителя');
             $table->string('email_address_0', 100)->unique()->comment('Email (электронная почта)');
             $table->string('telephone_mobile', 20)->comment('Номер телефона (родителя)');
             $table->string('comments', 600)->default(NULL)->comment('Комментарий к форме (не обязательно)');
+            $table->boolean('status_ok')->comment('Проверен 1 или нет 0');
             $table->timestamps();
         });
     }

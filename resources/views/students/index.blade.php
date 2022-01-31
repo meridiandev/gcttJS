@@ -39,7 +39,7 @@
                                             {{ $enrollment->id }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{  $enrollment->first_name  }}
+                                            {{  $enrollment->name  }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
@@ -56,7 +56,7 @@
                             </table>
                         </div>
                         <div class="mt-4 p-4 box has-text-centered">
-                            {{-- {{ $enrollments->links('pagination::tailwind') }} --}}
+                            {{ $enrollments->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>
