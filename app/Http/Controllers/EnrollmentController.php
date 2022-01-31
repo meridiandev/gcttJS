@@ -15,7 +15,7 @@ class EnrollmentController extends Controller
      */
     public function index()
     {
-        return view('enrollment/index');
+        return view('enrollment.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class EnrollmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('enrollment.create');
     }
 
     /**
@@ -82,5 +82,10 @@ class EnrollmentController extends Controller
     public function destroy(Enrollment $enrollment)
     {
         //
+    }
+
+    public function status(Enrollment $enrollment)
+    {
+        return view('enrollment.status');
     }
 }

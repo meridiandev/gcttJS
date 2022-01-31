@@ -17,7 +17,7 @@ class BlogController extends Controller
         //return view('blog', ['blogs' => $blogs ]);
 
         $tapes = Tape::latest()->get();
-        //$tapes = Tape::orderBy('created_at', 'asc')->paginate(10);
+        //$tapes = Tape::orderBy('updated_at', 'asc')->paginate(10);
         return view('blogs.index')->with('tapes', $tapes);
     }
 

@@ -98,7 +98,17 @@ class TapeController extends Controller
 
     public function update(UpdateTapeRequest $request, Tape $tape)
     {
-        $tape->update($request->validated());
+        //$tape->update($request->validated());
+
+        $tape->title = $request->get('title');
+        $tape->link_images_1 = $request->get('link_images_1');
+        $tape->content_main_page = $request->get('content_main_page');
+        $tape->content = $request->get('content');
+        $tape->date_published = $request->get('date_published');
+        $tape->comments_shows = $request->get('comments_shows');
+        $tape->published = $request->get('published');
+        //$tape->published_slider_status = $request->get('published_slider_status');
+        $tape->save();
 
         return redirect()->route('tapes.index');
     }

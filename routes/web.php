@@ -26,7 +26,9 @@ use App\Http\Livewire\Tapes;
     Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
     Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
-    Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
+    //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
+    //Route::get('/enrollment/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
+    //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 
 //});
 
