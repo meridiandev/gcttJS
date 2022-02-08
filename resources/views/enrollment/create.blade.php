@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Зачисление ИТКуб42 - Новокузнецк') }}</title>
+    <title>{{ __('Зачисление ИТКуб42 - Новокузнецк') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -23,7 +23,9 @@
     <div class="flex justify-center items-center w-full bg-blue-400">
         <div class="w-1/2 bg-white rounded shadow-2xl p-8 m-4">
             <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">{{ __('Записаться!') }}</h1>
-            <form action="/" method="post">
+            {!! Form::open(array('route' => '','method'=>'POST')) !!}
+            @csrf
+            <!-- <form action="/" method="post"> -->
                 <div class="flex flex-col mb-4">
                     <label class="mb-2 font-bold text-lg text-gray-900" for="inputsCertificate">{{ __('Номер сертификата ПФДО') }}</label>
                     <input class="border py-2 px-3 text-grey-800" type="text" name="inputsCertificate" id="inputsCertificate">
@@ -43,6 +45,7 @@
                 <div class="flex flex-col mb-4">
                     <label class="mb-2 font-bold text-lg text-gray-900" for="gender">{{ __('Пол') }}</label>
                     <select class="border py-2 px-3 text-grey-800">
+                        <!-- <option>{{ __('Девочка') }}</option> -->
                         <option>{{ __('Девочка') }}</option>
                         <option>{{ __('Мальчик') }}</option>
                     </select>
@@ -126,7 +129,8 @@
             </div> --}}
                 <button class="block bg-green-400 hover:bg-green-600 text-white uppercase text-lg mx-auto p-4 rounded"
                     type="submit">Save</button>
-            </form>
+            <!-- </form> -->
+            {!! Form::close() !!}
         </div>
     </div>
 </body>
