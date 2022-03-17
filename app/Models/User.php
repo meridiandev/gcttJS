@@ -73,4 +73,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    /**
+     * @param string $role
+     * @return bool
+     */
+//    public function hasRole(string $role): bool
+//    {
+//        return $this->getAttribute('role') === $role;
+//    }
 }

@@ -56,17 +56,28 @@
                     <img class="max-h-117 w-80 object-cover" src="{{ $tape->link_images_1 }}" alt="" />
                   </div> --}}
                   <div class="md:px-10 sh sm:px-5">
+                      <div class="flex items-center justify-between"><span class="font-light text-gray-600">{{ \Carbon\Carbon::parse($tape->date_published)->format('d/m/Y') }}</span><a href="#"
+                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">{{ $tape->organization_show }}</a>
+                      </div>
                     <h1 class="text-gray-800 font-bold text-2xl my-2">{{ $tape->title }}</h1>
                     {{-- <p class="text-gray-700 mb-2 md:mb-6">XXXXXX{!! Str::limit($tape->content, 100) !!}</p> --}}
                     <p class="text-gray-700 mb-2 md:mb-6">{!! Str::limit($tape->content, 3000) !!}</p>
+                      <div class="flex items-center justify-between mt-4">
+                          <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                              <a href="/blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>
+                          </button>
+                          <div><a href="#" class="flex items-center">
+                                  <h1 class="font-bold text-gray-700 hover:underline">{{ $tape->author }}</h1>
+                              </a></div>
+                      </div>
                     <div class="flex justify-between mb-2">
                     <br>
                       {{-- <span class="font-thin text-sm">{{ $tape->created_at }}</span> --}}
-                      <span class="sm:block hidden mb-2 text-gray-800 font-bold">
-                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                            <a href="/blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>
-                        </button>
-                        </span>
+{{--                      <span class="sm:block hidden mb-2 text-gray-800 font-bold">--}}
+{{--                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
+{{--                            <a href="/blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>--}}
+{{--                        </button>--}}
+{{--                        </span>--}}
                     </div>
                   </div>
                 </div>

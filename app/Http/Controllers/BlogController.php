@@ -13,10 +13,18 @@ class BlogController extends Controller
     public function index(Tape $tape)
     {
 
+//        $posts = Post::orderBy('created_at', 'DESC')
+//            ->whereDate('created_at', '>', \Carbon\Carbon::now()->subWeek())
+//            ->get();
+
+        $tapes = Tape::orderBy('created_at', 'DESC')
+            ->whereDate('created_at', '>', \Carbon\Carbon::now()->subMonth())
+            ->get();
+
         //$blogs = Blog::latest()->get();
         //return view('blog', ['blogs' => $blogs ]);
 
-        $tapes = Tape::latest()->get();
+        //$tapes = Tape::latest()->get();
         //$tapes = Tape::orderBy('updated_at', 'asc')->paginate(10);
         return view('blogs.index')->with('tapes', $tapes);
     }
@@ -37,6 +45,17 @@ class BlogController extends Controller
         TapeView::createViewLog($tape);
 
         return view('blogs.show')->with('tape', $tape);
+    }
+
+//    public function show($slug){
+//        $tape = Tape::where('slug', $slug)->first();
+//        return view('blogs.show')->with('tape', $tape);
+//    }
+
+    public function getSlug(Tape $slug)
+    {
+        $tape = Tape::where('slug', $slug)->firstOrFail();
+        return $tape;
     }
 
     public function search(Request $request){

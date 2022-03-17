@@ -16,4 +16,8 @@ class Itcube42EnterController extends Controller
     {
         return view('itcube42/index');
     }
+
+    public function global_dashboard(){
+        return view('itcube42/index');
+    }
 }
