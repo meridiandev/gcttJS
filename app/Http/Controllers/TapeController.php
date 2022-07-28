@@ -45,7 +45,8 @@ class TapeController extends Controller
             //'content' => 'required|max:15000',
             //'author' => 'required',
             //'published' => 'required',
-            //'published_slider_status' => 'required'
+            //'published_slider_status' => 'required',
+            'slug' => 'required|max:300'
         ];
 
         $messages = [
@@ -59,13 +60,15 @@ class TapeController extends Controller
             //'content.max' => 'Введите менее 15000 символов!',
             //'published.required' => 'Вы не опублековали статью!',
             //'published_slider_status.required' => 'Вы не опублековали статью в слайдер!'
+            'slag.required' => 'Ссылка Slug обязательна!'
         ];
 
         $this->validate($request, $rules, $messages);
 
         $tape = new Tape();
         $tape->title = $request->get('title');
-        $str = strtolower($request->title);
+        $tape->slug = $request->get('slug');
+        //$str = strtolower($request->title);
         $tape->link_images_1 = $request->get('link_images_1');
         $tape->content_main_page = $request->get('content_main_page');
         $tape->content = $request->get('content');
@@ -74,7 +77,7 @@ class TapeController extends Controller
         $tape->published = $request->get('published');
         $tape->published_slider_status = $request->get('published_slider_status');
         $tape->author = $user;
-        $tape->slug = preg_replace('/\s+/', '-', $str);
+        //$tape->slug = preg_replace('/\s+/', '-', $str);
         $tape->save();
 
         //Tape::create($request->validated());
@@ -110,6 +113,7 @@ class TapeController extends Controller
         $tape->comments_shows = $request->get('comments_shows');
         $tape->published = $request->get('published');
         //$tape->published_slider_status = $request->get('published_slider_status');
+        $tape->slug = $request->get('slug');
         $tape->save();
 
         return redirect()->route('tapes.index');

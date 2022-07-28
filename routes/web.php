@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Itcube42EnterController;
 use App\Http\Controllers\Kvantum42EnterController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactUsFormController;
 
 use App\Http\Livewire\Tapes;
 
@@ -35,12 +36,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
     Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
-    Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
-    Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
-    //Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
+    //Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
+    //Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
+    Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
     //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
-    Route::get('/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
+    //Route::get('/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 
 //});
@@ -55,22 +56,25 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
-    Route::resource('tasks', \App\Http\Controllers\TasksController::class);
+    //Route::resource('tasks', \App\Http\Controllers\TasksController::class);
     Route::resource('users', \App\Http\Controllers\UsersController::class);
-    Route::resource('staffs', \App\Http\Controllers\StaffController::class);
+    //Route::resource('staffs', \App\Http\Controllers\StaffController::class);
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
     Route::resource('comments', \App\Http\Controllers\CommentController::class);
     //Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
-    Route::resource('students', \App\Http\Controllers\StudentController::class);
-    Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
+    //Route::resource('students', \App\Http\Controllers\StudentController::class);
+    //Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
 
-    Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');
+    //Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');
 
     // Clear cache website
-    Route::get('/clear-cache', function() {
-        Artisan::call('cache:clear');
-        return "Cache is cleared";
-    });
+//    Route::get('/clear-cache', function() {
+//        Artisan::call('cache:clear');
+//        return "Cache is cleared";
+//    });
 });
+
+//Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+//Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 //Route::get('tapes', Tapes::class);

@@ -34,16 +34,16 @@
                     </p>
                 </div>
 
-                <div class="text-end">
-                    <form action="{{ route('search') }}" class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
-                        <div class=" relative ">
-                            <input type="text" name="search" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Введите название статьи" />
-                        </div>
-                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                            Найти
-                        </button>
-                    </form>
-                </div>
+{{--                <div class="text-end">--}}
+{{--                    <form action="{{ route('search') }}" class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">--}}
+{{--                        <div class=" relative ">--}}
+{{--                            <input type="text" name="search" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Введите название статьи" />--}}
+{{--                        </div>--}}
+{{--                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
+{{--                            Найти--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
 
             </div>
 
@@ -56,15 +56,15 @@
                     <img class="max-h-117 w-80 object-cover" src="{{ $tape->link_images_1 }}" alt="" />
                   </div> --}}
                   <div class="md:px-10 sh sm:px-5">
-                      <div class="flex items-center justify-between"><span class="font-light text-gray-600">{{ \Carbon\Carbon::parse($tape->date_published)->format('d/m/Y') }}</span><a href="#"
-                                              class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">{{ $tape->organization_show }}</a>
+                      <div class="flex items-center justify-between"><span class="font-light text-gray-600">{{ \Carbon\Carbon::parse($tape->date_published)->format('d/m/Y') }}{{--</span><a href="#"
+                                             class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500"> {{ $tape->organization_show }} </a>--}}
                       </div>
                     <h1 class="text-gray-800 font-bold text-2xl my-2">{{ $tape->title }}</h1>
                     {{-- <p class="text-gray-700 mb-2 md:mb-6">XXXXXX{!! Str::limit($tape->content, 100) !!}</p> --}}
                     <p class="text-gray-700 mb-2 md:mb-6">{!! Str::limit($tape->content, 3000) !!}</p>
                       <div class="flex items-center justify-between mt-4">
                           <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                              <a href="/blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>
+                              <a href="/blog/{{ $tape->slug }}">{{ __('Подробнее') }}</a>
                           </button>
                           <div><a href="#" class="flex items-center">
                                   <h1 class="font-bold text-gray-700 hover:underline">{{ $tape->author }}</h1>

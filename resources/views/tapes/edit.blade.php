@@ -35,9 +35,21 @@
                                 class="block font-medium text-sm text-gray-700">{{ __('Заголовок') }}</label>
                             <input type="text" name="title" id="title" type="text"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value="{{ old('description', $tape->title) }}" />
+                                value="{{ old('title', $tape->title) }}" />
                             @error('title')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="slug"
+                                   class="block font-medium text-sm text-gray-700">{{ __('Ссылка Slug(обязательно)') }}</label>
+                            <input type="text" name="slug" id="slug" type="text"
+                                   class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('slug', $tape->slug) }}" />
+                            @error('slug')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -57,7 +69,7 @@
                                 class="block font-medium text-sm text-gray-700">{{ __('Заголовок слайдера') }}</label>
                             <input type="text" name="content_main_page" id="title" type="text"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value="{{ old('content_main_page', $tape->content_main_page) }}" />
+                                value="{!! old('content_main_page', $tape->content_main_page) !!}" />
                             @error('content_main_page')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -67,10 +79,7 @@
                             <label for="content"
                                 class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea id="textarea_tape1" name="content" id="content" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full "
-                                value="{!! old('content', $tape->content) !!}" />
-                            </textarea>
+                            <textarea id="textarea_tape1" name="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ Form::label('content', $tape->content) }}"></textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

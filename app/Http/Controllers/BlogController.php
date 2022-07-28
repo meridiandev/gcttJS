@@ -29,28 +29,41 @@ class BlogController extends Controller
         return view('blogs.index')->with('tapes', $tapes);
     }
 
-    public function show(Tape $tape)
-    {
+//    public function show(Tape $tape)
+//    {
+//        //$tape = Tape::with('category', 'user')->withCount('favorites')->find($tape->id);
+//
+//        // Проверка просмотра пользователем, антинакрутка просмотров одним и тем же пользователем
+//        if($tape->showTape())
+//        {
+//            return view('blogs.show')->with('tape', $tape);
+//        }
+//
+//        // + 1
+//        $tape->increment('views');
+//        // Логирование просмотров
+//        TapeView::createViewLog($tape);
+//
+//        return view('blogs.show')->with('tape', $tape);
+//    }
+
+    public function show($slug){
+
+        $tape = Tape::where('slug', $slug)->first();
         //$tape = Tape::with('category', 'user')->withCount('favorites')->find($tape->id);
 
         // Проверка просмотра пользователем, антинакрутка просмотров одним и тем же пользователем
-        if($tape->showTape())
-        {
-            return view('blogs.show')->with('tape', $tape);
-        }
+//        if($tape->showTape())
+//        {
+//            return view('blogs.show')->with('tape', $tape);
+//        }
 
-        // + 1
+        // + 1 to views
         $tape->increment('views');
-        // Логирование просмотров
         TapeView::createViewLog($tape);
 
         return view('blogs.show')->with('tape', $tape);
     }
-
-//    public function show($slug){
-//        $tape = Tape::where('slug', $slug)->first();
-//        return view('blogs.show')->with('tape', $tape);
-//    }
 
     public function getSlug(Tape $slug)
     {

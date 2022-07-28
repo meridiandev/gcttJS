@@ -43,6 +43,29 @@
                             @enderror
                         </div>
 
+{{--                        <div class="px-4 py-5 bg-white sm:p-6">--}}
+{{--                            <label for="slug"--}}
+{{--                                   class="block font-medium text-sm text-gray-700">{{ __('Ссылка(обязательно)') }}</label>--}}
+{{--                            <input type="text" name="slug" id="slug" type="text"--}}
+{{--                                   class="form-input rounded-md shadow-sm mt-1 block w-full"--}}
+{{--                                   value="{{ old('slug', '') }}" />--}}
+{{--                            @error('slug')--}}
+{{--                            <p class="text-sm text-red-600">{{ $message }}</p>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
+
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="slug"
+                                   class="block font-medium text-sm text-gray-700">{{ __('Ссылка Slug(обязательно)') }}</label>
+                            <input type="text" name="slug" id="slug" type="text"
+                                   class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('slug', '') }}" />
+                            @error('slug')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="link_images_1"
                                 class="block font-medium text-sm text-gray-700">{{ __('Ссылка на картинку') }}</label>
@@ -76,13 +99,9 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="content"
-                                class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
+                            <label for="content" class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea id="textarea_tape2" name="content" id="content" type="content"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full "
-                                value="{{ old('content', '') }}" />
-                            </textarea>
+                            <textarea id="textarea_tape2" name="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('content', '') }}"></textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
