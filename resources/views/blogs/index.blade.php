@@ -66,9 +66,9 @@
                           <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
                               <a href="/blog/{{ $tape->slug }}">{{ __('Подробнее') }}</a>
                           </button>
-                          <div><a href="#" class="flex items-center">
-                                  <h1 class="font-bold text-gray-700 hover:underline">{{ $tape->author }}</h1>
-                              </a></div>
+{{--                          <div><a href="#" class="flex items-center">--}}
+{{--                                  <h1 class="font-bold text-gray-700 hover:underline">{{ $tape->author }}</h1>--}}
+{{--                              </a></div>--}}
                       </div>
                     <div class="flex justify-between mb-2">
                     <br>
@@ -95,7 +95,7 @@
             </div>
             @endif
             <div class="mt-4 p-4 box has-text-centered">
-                {{-- {{ $tapes->links('pagination::tailwind') }} --}}
+{{--                 {{ $tapes->links('pagination::tailwind') }}--}}
             </div>
     </section>
 </body>

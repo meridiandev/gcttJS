@@ -41,9 +41,9 @@
                     <p>Актуальную информацию всегда можно найти в сетях</p>
                     <div class="social-links mt-3">
                         <a href="https://vk.com/itcube42" class="twitter"><i class="bx bxl-vk"></i></a>
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="https://www.instagram.com/itcube42/" class="instagram"><i class="bx bxl-instagram"></i></a>
+{{--                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>--}}
+{{--                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>--}}
+{{--                        <a href="https://www.instagram.com/itcube42/" class="instagram"><i class="bx bxl-instagram"></i></a>--}}
 {{--                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>--}}
 {{--                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>--}}
                     </div>
@@ -55,7 +55,7 @@
 
     <div class="container py-4">
         <div class="copyright">
-            &copy; 2021. IT-Cube 42 г.Новокузнецк <strong><span>Меридиан</span></strong>.
+            &copy; 2022. IT-Cube 42 г.Новокузнецк</strong>.
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->

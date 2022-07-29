@@ -22,20 +22,20 @@ class UsersController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function create(array $data)
-    {
-        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-        $roles = Role::pluck('title', 'id');
-
-        return view('users.create', compact('roles'));
-    }
+//    public function create(array $data)
+//    {
+//        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+//
+//        return User::create([
+//            'name' => $data['name'],
+//            'email' => $data['email'],
+//            'password' => Hash::make($data['password']),
+//        ]);
+//
+//        $roles = Role::pluck('title', 'id');
+//
+//        return view('users.create', compact('roles'));
+//    }
 
     public function store(StoreUserRequest $request)
     {
