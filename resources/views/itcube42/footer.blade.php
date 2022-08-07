@@ -19,7 +19,7 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>ИТКуб 42 Новокузнецк<span>.</span></h3>
+                    <h3>ИТ-куб.Новокузнецк<span>.</span></h3>
                     <p>
                         ул. Циолковского, 78а <br>
                         Кемеровская область, г. Новокузнецк<br>
@@ -40,7 +40,7 @@
                     <h4>Мы в социальных сетях</h4>
                     <p>Актуальную информацию всегда можно найти в сетях</p>
                     <div class="social-links mt-3">
-                        <a href="https://vk.com/itcube42" class="twitter"><i class="bx bxl-vk"></i></a>
+                        <a href="https://vk.com/itcube42"><i class="bx bxl-vk"></i></a>
 {{--                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>--}}
 {{--                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>--}}
 {{--                        <a href="https://www.instagram.com/itcube42/" class="instagram"><i class="bx bxl-instagram"></i></a>--}}
@@ -55,7 +55,7 @@
 
     <div class="container py-4">
         <div class="copyright">
-            &copy; 2022. IT-Cube 42 г.Новокузнецк</strong>.
+            &copy; 2022. «IT-куб» г.Новокузнецк.
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->

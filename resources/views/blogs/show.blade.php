@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Блог - {{ $tape->title }}</title>
+    <title>IT-куб Новости - {{ $tape->title }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -113,7 +113,7 @@
                     </form>
                     @endif
                     <div class="block mt-4">
-                        <a href="/blog"
+                        <a href="/news"
                             class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к новостям') }}</a>
                     </div>
                 </div>

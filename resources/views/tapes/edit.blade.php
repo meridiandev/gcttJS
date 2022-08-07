@@ -4,7 +4,9 @@
 
     <script>
         tinymce.init({
-            selector: '#textarea_tape1',
+            selector: "textarea",
+            plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
+            toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
             language: 'ru',
             language_url: 'lang/tinymce/ru.js'
         });
@@ -79,7 +81,7 @@
                             <label for="content"
                                 class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea id="textarea_tape1" name="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ Form::label('content', $tape->content) }}"></textarea>
+                            <textarea name="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ Form::label('content', $tape->content) }}"></textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

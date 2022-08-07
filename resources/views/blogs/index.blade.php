@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ __('Блог ИТКуб42 - Новокузнецк') }}</title>
+    <title>{{ __('Новости IT-куб - Новокузнецк') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -17,23 +17,20 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 </head>
-
 <body>
-
-
-
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12">
             <div class="header flex items-end justify-between mb-12">
-
                 <div class="title">
                     <p class="text-4xl font-bold text-gray-800 mb-4">
-                        ITCube42 Блог
+                        Новости центра
+                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
+                            <a href="./">{{ __('Уже все знаю!') }}</a>
+                        </button>
                     </p>
                     <p class="text-2xl font-light text-gray-400">
-                        Все актуальные новости и события ИТКуб42 в нашем блоге!
+                        Все актуальные события IT-куб в нашем новостной ленте!
                     </p>
                 </div>
-
 {{--                <div class="text-end">--}}
 {{--                    <form action="{{ route('search') }}" class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">--}}
 {{--                        <div class=" relative ">--}}
@@ -46,7 +43,6 @@
 {{--                </div>--}}
 
             </div>
-
             <main class="py-12 md:px-20 sm:px-14 px-6">
                 @if(count($tapes) > 0)
                 {{-- @if(\Carbon\Carbon::parse($tapes->date_published)->get(now())) --}}
@@ -64,7 +60,7 @@
                     <p class="text-gray-700 mb-2 md:mb-6">{!! Str::limit($tape->content, 3000) !!}</p>
                       <div class="flex items-center justify-between mt-4">
                           <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">
-                              <a href="/blog/{{ $tape->slug }}">{{ __('Подробнее') }}</a>
+                              <a href="/news/{{ $tape->slug }}">{{ __('Подробнее') }}</a>
                           </button>
 {{--                          <div><a href="#" class="flex items-center">--}}
 {{--                                  <h1 class="font-bold text-gray-700 hover:underline">{{ $tape->author }}</h1>--}}
@@ -72,19 +68,12 @@
                       </div>
                     <div class="flex justify-between mb-2">
                     <br>
-                      {{-- <span class="font-thin text-sm">{{ $tape->created_at }}</span> --}}
-{{--                      <span class="sm:block hidden mb-2 text-gray-800 font-bold">--}}
-{{--                        <button class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="submit">--}}
-{{--                            <a href="/blog/{{ $tape->id }}">{{ __('Подробнее') }}</a>--}}
-{{--                        </button>--}}
-{{--                        </span>--}}
                     </div>
                   </div>
                 </div>
                 @endforeach
                 @else
             </main>
-
             <div class="title">
                 <p class="text-4xl font-bold text-gray-800 mb-4">
                     Нет последних новостей
@@ -99,5 +88,4 @@
             </div>
     </section>
 </body>
-
 </html>

@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>IT-CUBE.Новокузнецк Федеральная сеть детских Центров цифрового образования</title>
-    <meta content="IT-CUBE.Новокузнецк Федеральная сеть детских Центров цифрового образования" name="description">
-    <meta content="ITCube42" name="keywords">
+    <title>IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования</title>
+    <meta content="IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования" name="description">
+    <meta content="IT-куб.Новокузнецк" name="keywords">
 
 @include('itcube42/loader')
     @include('itcube42.googleAnalytics')
@@ -18,7 +18,8 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     * Rework: v.sergeev.m@gmail.com
-    * ItCube42:
+    * IT-куб.Новокузнецк
+    * Updated: 8.08.2022
     ======================================================== -->
 </head>
 
@@ -37,7 +38,7 @@
 @include('itcube42/services')
 {{--@include('itcube42/testimonials')--}}
 {{--@include('itcube42/portfolio')--}}
-{{--@include('itcube42/team')--}}
+@include('itcube42/team')
 {{--@include('itcube42/pricing')--}}
 @include('itcube42/ask')
 @include('itcube42/contact')
