@@ -41,7 +41,27 @@
                 @can('user_access')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('tapes.index') }}" :active="request()->routeIs('tapes.*')">
-                            {{ __('Лента')  }}
+                            {{ __('Новости')  }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('teachers.index') }}" :active="request()->routeIs('teachers.*')">
+                            {{ __('Персонал')  }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('arrows.index') }}" :active="request()->routeIs('arrows.*')">
+                            {{ __('Направления')  }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('documents.index') }}" :active="request()->routeIs('documents.*')">
+                            {{ __('Документы')  }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.*')">
+                            {{ __('Настройки(beta)')  }}
                         </x-jet-nav-link>
                     </div>
                 @endcan

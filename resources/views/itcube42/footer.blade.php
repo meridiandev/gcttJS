@@ -1,5 +1,5 @@
 <footer id="footer">
-
+@foreach($settings as $setting)
 {{--    <div class="footer-newsletter">--}}
 {{--        <div class="container">--}}
 {{--            <div class="row justify-content-center">--}}
@@ -19,13 +19,10 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>ИТ-куб.Новокузнецк<span>.</span></h3>
-                    <p>
-                        ул. Циолковского, 78а <br>
-                        Кемеровская область, г. Новокузнецк<br>
-                        <br><br>
-                        <strong>Телефон:</strong> +7 (3843) 77-88-89<br>
-                        <strong>Email:</strong>itcube42@yandex.ru<br>
+                    <h4><span>{{ $setting->site_header }}.</span></h4>
+                    <p>{{ $setting->site_address }}<br><br>
+                        <strong>Телефон:</strong>{{ $setting->site_phone }}<br>
+                        <strong>Email:</strong>{{ $setting->site_email }}<br>
                     </p>
                 </div>
 
@@ -55,14 +52,15 @@
 
     <div class="container py-4">
         <div class="copyright">
-            &copy; 2022. «IT-куб» г.Новокузнецк.
+            &copy; {{ $setting->site_footer }} " | Работает на <a href="https://laravel.com/">Laravel</a>  v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-            <a href="https://ctt-meridian.ru">Меридиан</a>
+            <a href="{{ $setting->site_footer_link }}">Меридиан</a>
         </div>
     </div>
+    @endforeach
 </footer><!-- End Footer -->

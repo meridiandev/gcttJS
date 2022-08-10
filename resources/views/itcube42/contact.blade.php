@@ -9,11 +9,12 @@
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
+            @foreach($settings as $setting)
             <div class="col-lg-6">
                 <div class="info-box mb-4">
                     <i class="bx bx-map"></i>
                     <h3>Наш адрес</h3>
-                    <p>654 018, Кемеровская область, г. Новокузнецк, ул. Циолковского, 78а</p>
+                    <p>{{ $setting->site_address }}</p>
                 </div>
             </div>
 
@@ -21,7 +22,7 @@
                 <div class="info-box  mb-4">
                     <i class="bx bx-envelope"></i>
                     <h3>Напишите нам на Email</h3>
-                    <p>itcube42@yandex.ru</p>
+                    <p>{{ $setting->site_email }}</p>
                 </div>
             </div>
 
@@ -29,10 +30,10 @@
                 <div class="info-box  mb-4">
                     <i class="bx bx-phone-call"></i>
                     <h3>Позвоните нам</h3>
-                    <p>+7 (3843) 77-88-89</p>
+                    <p>{{ $setting->site_phone }}</p>
                 </div>
             </div>
-
+            @endforeach
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">

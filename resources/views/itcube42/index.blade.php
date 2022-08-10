@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования</title>
+    @foreach ($settings as $setting)
+    <title>{{ $setting->site_title ?: 'IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования'}}</title>
+    @endforeach
     <meta content="IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования" name="description">
     <meta content="IT-куб.Новокузнецк" name="keywords">
 
@@ -40,6 +42,7 @@
 {{--@include('itcube42/portfolio')--}}
 @include('itcube42/team')
 {{--@include('itcube42/pricing')--}}
+    @include('itcube42/doc')
 @include('itcube42/ask')
 @include('itcube42/contact')
 

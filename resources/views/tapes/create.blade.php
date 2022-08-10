@@ -103,7 +103,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="content" class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea name="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('content', '') }}"></textarea>
+                            <textarea name="content" type="content" class="form-input rounded-md shadow-sm mt-1 block w-full">{{ old('content', '') }}</textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

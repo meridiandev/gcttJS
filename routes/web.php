@@ -20,16 +20,16 @@ use App\Http\Livewire\Tapes;
 */
 
 // user protected routes
-Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function () {
-    Route::get('/', 'HomeController@index')->name('user_dashboard');
-    Route::get('/list', 'UserController@list')->name('user_list');
-});
-
-// admin protected routes
-Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
-    Route::get('/', 'HomeController@index')->name('global_dashboard');
-    Route::get('/users', 'AdminUserController@list')->name('admin_users');
-});
+//Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'user'], function () {
+//    Route::get('/', 'HomeController@index')->name('user_dashboard');
+//    Route::get('/list', 'UserController@list')->name('user_list');
+//});
+//
+//// admin protected routes
+//Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+//    Route::get('/', 'HomeController@index')->name('global_dashboard');
+//    Route::get('/users', 'AdminUserController@list')->name('admin_users');
+//});
 
 
 // ITCube42 domain routing
@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::get('/news/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
     //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
-    //Route::get('/create', [\App\Http\Controllers\EnrollmentController::class, 'create'])->name('enrollment');
+    //Route::get('/apply', [\App\Http\Controllers\StudentController::class, 'create'])->name('create');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 
 //});
@@ -62,7 +62,11 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
     Route::resource('comments', \App\Http\Controllers\CommentController::class);
     Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
-    //Route::resource('students', \App\Http\Controllers\StudentController::class);
+    Route::resource('teachers', \App\Http\Controllers\TeacherController::class);
+    Route::resource('arrows', \App\Http\Controllers\ArrowController::class);
+    Route::resource('documents', \App\Http\Controllers\DocumentController::class);
+    Route::resource('settings', \App\Http\Controllers\SettingController::class);
+    Route::resource('students', \App\Http\Controllers\StudentController::class);
     //Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
 
     //Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');

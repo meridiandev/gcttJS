@@ -33,13 +33,13 @@
                                     </th>
                                 </tr>
                                 </thead>
-                                @foreach ($enrollments as $enrollment)
+                                @foreach ($students as $student)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $enrollment->id }}
+                                            {{ $student->id }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{  $enrollment->name  }}
+                                            {{  $student->first_name  }} {{  $student->surname  }} {{  $student->patronymic  }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
@@ -49,14 +49,14 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('students.show', $enrollment->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Просмотр') }}</button></a>
+                                            <a href="{{ route('students.show', $student->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Просмотр') }}</button></a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </table>
                         </div>
                         <div class="mt-4 p-4 box has-text-centered">
-                            {{ $enrollments->links('pagination::tailwind') }}
+                            {{ $students->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>

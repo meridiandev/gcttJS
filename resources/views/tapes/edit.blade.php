@@ -81,7 +81,7 @@
                             <label for="content"
                                 class="block font-medium text-sm text-gray-700">{{ __('Описание') }}</label>
 
-                            <textarea name="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ Form::label('content', $tape->content) }}"></textarea>
+                            <textarea name="content" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full">{{ old('content', $tape->content) }}</textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
