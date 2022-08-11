@@ -68,7 +68,7 @@
 
                                 <div class="member-img">
 
-                                    <img src="{{ $teacher->images }}" class="img-fluid" alt="">
+                                    <img src="{{ $teacher->images }}" class="img-fluid" alt="{{ $teacher->full_name }}" width="150" height="150">
                                     {{--                            <div class="social">--}}
                                     {{--                                <a href=""><i class="bi bi-phone"></i></a>--}}
                                     {{--                                <a href=""><i class="bi bi-facebook"></i></a>--}}
