@@ -30,7 +30,7 @@
 
                         <div class="member-img">
 
-                            <img src="{{ $teacher->images }}" class="img-fluid" alt="{{ $teacher->full_name }}" width="150" height="150">
+                            <img src="{{ $teacher->images }}" class="img-fluid" alt="{{ $teacher->full_name }}" width="260" height="260">
 {{--                            <div class="social">--}}
 {{--                                <a href=""><i class="bi bi-phone"></i></a>--}}
 {{--                                <a href=""><i class="bi bi-facebook"></i></a>--}}
@@ -40,7 +40,7 @@
                         </div>
                         <div class="member-info">
                             <h4>{{ $teacher->full_name }}</h4>
-                            <span>{!! $teacher->content !!}</span>
+                            <span>{{ $teacher->content }}</span>
                         </div>
 
                     </div>
@@ -68,7 +68,7 @@
 
                                 <div class="member-img">
 
-                                    <img src="{{ $teacher->images }}" class="img-fluid" alt="{{ $teacher->full_name }}" width="150" height="150">
+                                    <img src="{{ $teacher->images }}" class="img-fluid" alt="{{ $teacher->full_name }}" width="260" height="260">
                                     {{--                            <div class="social">--}}
                                     {{--                                <a href=""><i class="bi bi-phone"></i></a>--}}
                                     {{--                                <a href=""><i class="bi bi-facebook"></i></a>--}}
@@ -78,9 +78,8 @@
                                 </div>
                                 <div class="member-info">
                                     <h4>{{ $teacher->full_name }}</h4>
-                                    <span>{!! $teacher->content !!}</span>
+                                    <span>{{ $teacher->content }}</span>
                                 </div>
-
                             </div>
                         </div>
                         @continue

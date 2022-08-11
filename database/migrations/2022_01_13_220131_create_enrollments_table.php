@@ -21,6 +21,7 @@ class CreateEnrollmentsTable extends Migration
             $table->string('patronymic', 200)->comment('Отчество');
             $table->boolean('gender')->comment('Пол');
             $table->binary('data_of_birth')->comment('Дата рождения');
+            //$table->string('real_age')->comment('Реальных лет на сентябрь');
             $table->string('home_address_1', 200)->default(NULL)->comment('Населенный пункт');
             $table->string('home_address_2', 200)->default(NULL)->comment('Адрес регистрации');
             $table->string('class_education', 200)->comment('Класс/Курс');
