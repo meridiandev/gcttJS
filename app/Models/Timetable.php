@@ -12,7 +12,7 @@ class Timetable extends Model
     protected $fillable = [
         'topic',
         'teacher_full_name',
-        'kvantum_name',
+        'arrow_name',
         'week_day_1',
         'week_day_2',
         'week_day_3',

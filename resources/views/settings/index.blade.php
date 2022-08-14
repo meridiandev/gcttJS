@@ -8,9 +8,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="block mb-8">
-                <a href="{{ route('settings.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('Добавить') }}</a>
-            </div>
+{{--            <div class="block mb-8">--}}
+{{--                <a href="{{ route('settings.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('Добавить') }}</a>--}}
+{{--            </div>--}}
 
             @if ($message = Session::get('success'))
                 <div id="alert-additional-content-3" class="p-4 mb-4 border border-green-300 rounded-lg bg-green-50 dark:bg-green-200" role="alert">
@@ -88,6 +88,9 @@
                                         {{ __('site_footer_link') }}
                                     </th>
 
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ __('Действие') }}
+                                    </th>
                                 </tr>
                                 </thead>
                                 @foreach ($settings as $setting)
