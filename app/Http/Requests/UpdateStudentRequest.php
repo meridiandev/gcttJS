@@ -38,7 +38,9 @@ class UpdateStudentRequest extends FormRequest
             'parents' => 'required',
             'email_address_0' => 'required',
             'telephone_mobile' => 'required',
-            'comments' => 'required'
+            'comments' => 'required',
+            'verified' => 'required',
+            'accepted' => 'required'
         ];
     }
 
@@ -58,7 +60,9 @@ class UpdateStudentRequest extends FormRequest
             'parents.required' => 'required',
             'email_address_0.required' => 'required',
             'telephone_mobile.required' => 'required',
-            'comments.required' => 'required'
+            'comments.required' => 'required',
+            'verified' => '',
+            'accepted' => ''
         ];
     }
 }

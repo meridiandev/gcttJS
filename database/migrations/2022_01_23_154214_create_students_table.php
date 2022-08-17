@@ -29,6 +29,8 @@ class CreateStudentsTable extends Migration
             $table->string('email_address_0', 100)->unique()->comment('Email (электронная почта)');
             $table->string('telephone_mobile', 20)->comment('Номер телефона (родителя)');
             $table->string('comments', 600)->default(NULL)->comment('Комментарий к форме (не обязательно)');
+            $table->boolean('verified')->default(0)->comment('Прошел проверку');
+            $table->boolean('accepted')->default(0)->comment('Заявка в обработке');
             $table->timestamps();
         });
     }

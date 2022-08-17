@@ -38,7 +38,9 @@ class StoreStudentRequest extends FormRequest
             'parents' => 'required',
             'email_address_0' => 'required',
             'telephone_mobile' => 'required',
-            'comments' => ''
+            'comments' => '',
+            'verified' => '',
+            'accepted' => ''
         ];
     }
 

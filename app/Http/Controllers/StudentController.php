@@ -42,7 +42,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        Student::create($request->all());
+        Student::create($request->validated());
 
         return redirect()->route('students.index')->with('messages', 'Store OK!');
     }
@@ -80,9 +80,11 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateStudentRequest $request)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
-        Student::update($request->all());
+        $student->update($request->validated());
+        //Student::update($request->all());
+        //$request->dd();
 
         return redirect()->route('students.index')->with('success', 'UPD OK');
     }
