@@ -50,7 +50,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- This example requires Tailwind CSS v2.0+ -->
             <div class="block mb-8">
-                <a href="{{ route('teachers.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('Добавить') }}</a>
+                <a href="{{ route('teachers.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{{ __('+ Добавить') }}</a>
             </div>
 
             @if ($message = Session::get('success'))
@@ -178,16 +178,16 @@
 {{--                                        </td>--}}
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('teachers.edit', $teacher->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Обновить') }}</button></a>
-{{--                                            <a href="{{ route('teachers.show', $teacher->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Подробнее') }}</button></a>--}}
-                                            <form class="inline-block" action="{{ route('teachers.destroy', $teacher->id) }}"
-                                                  method="POST" onsubmit="return confirm('Уверены ли вы?');">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit"
-                                                       class="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none"
-                                                       value="Удалить">
-                                            </form>
+{{--                                            <a href="{{ route('teachers.edit', $teacher->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Обновить') }}</button></a>--}}
+                                            <a href="{{ route('teachers.show', $teacher->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Подробнее') }}</button></a>
+{{--                                            <form class="inline-block" action="{{ route('teachers.destroy', $teacher->id) }}"--}}
+{{--                                                  method="POST" onsubmit="return confirm('Уверены ли вы?');">--}}
+{{--                                                <input type="hidden" name="_method" value="DELETE">--}}
+{{--                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+{{--                                                <input type="submit"--}}
+{{--                                                       class="px-5 py-2 border-red-500 border text-red-500 rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none"--}}
+{{--                                                       value="Удалить">--}}
+{{--                                            </form>--}}
                                         </td>
                                     </tr>
                                 @endforeach

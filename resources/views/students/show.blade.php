@@ -90,6 +90,16 @@
                                 </tr>
 
                                 <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ __('Подробнее:') }}
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        <p>{{ __('Создан:') }} {{ $student->created_at }}</p>
+                                        <p>{{ __('Обновлено:') }} {{ $student->updated_at }}</p>
+                                    </td>
+                                </tr>
+
+                                <tr class="border-b">
                                     <th scope="col"
                                         class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         {{ __('Специальные действия') }}
@@ -116,7 +126,7 @@
                 </div>
             </div>
             <div class="block mt-8">
-                <a href="{{ route('students.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к списку') }}</a>
+                <a href="{{ route('students.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('< Обратно к списку') }}</a>
             </div>
         </div>
     </div>

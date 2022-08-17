@@ -17,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('global_admin_access', 'clerk_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('students.index', ['students' => Student::paginate(10)]);
     }

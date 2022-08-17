@@ -8,7 +8,7 @@
     <div>
         <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('students.show', $student->id ) }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('Обратно к студенту') }}</a>
+                <a href="{{ route('students.show', $student->id ) }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">{{ __('< Обратно к студенту') }}</a>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <form method="post" action="{{ route('students.update', $student->id) }}">
@@ -139,7 +139,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="comments" class="block font-medium text-sm text-gray-700">{{ __('Комментарий к форме (не обязательно)') }}</label>
-                            <input type="text" name="comments" id="comments" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <input type="text" name="comments" id="comments" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('comments', $student->comments) }}" />
                             @error('comments')
                             <p class="text-sm text-red-600">{{ $message }}</p>
