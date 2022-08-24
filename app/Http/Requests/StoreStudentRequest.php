@@ -38,6 +38,8 @@ class StoreStudentRequest extends FormRequest
             'parents' => 'required',
             'email_address_0' => 'required',
             'telephone_mobile' => 'required',
+            'arrows' => 'required',
+            'old_arrow' => '',
             'comments' => '',
             'verified' => '',
             'accepted' => ''
@@ -60,7 +62,9 @@ class StoreStudentRequest extends FormRequest
             'parents.required' => 'Укажите Ф.И.О законного представиться(Родителя)',
             'email_address_0.required' => 'Укажите email законного представиться(Родителя)',
             'telephone_mobile.required' => 'Введите действующий номер телефона законного представиться(Родителя)',
-            'comments.required' => ''
+            'arrow.required' => '',
+            'comments.required' => '',
+            'old_arrow' => ''
         ];
     }
 }

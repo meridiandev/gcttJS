@@ -109,25 +109,25 @@
                                 </tr>
 
                                 {{-- Блок показа не опубликованных комментариев --}}
-                                <tr class="border-b">
-                                    <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ __('Неопубликованные комментарии') }}
-                                    </th>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        @foreach ($comments as $comment)
-                                            @if ($comment->show == '0' && $comment->id == $tape->id)
-                                                <div class="display-comment" @if ($comment->parent_id != null) style="margin-left:40px;" @endif>
-                                                    <strong>{{ $comment->user->name }}</strong>
-                                                    <p>{{ $comment->body }}</p>
-                                                </div>
-                                                <input data-id="{{$comment->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $comment->status ? 'checked' : '' }}>
+{{--                                <tr class="border-b">--}}
+{{--                                    <th scope="col"--}}
+{{--                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">--}}
+{{--                                        {{ __('Неопубликованные комментарии') }}--}}
+{{--                                    </th>--}}
+{{--                                    <td--}}
+{{--                                        class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">--}}
+{{--                                        @foreach ($comments as $comment)--}}
+{{--                                            @if ($comment->show == '0' && $comment->id == $tape->id)--}}
+{{--                                                <div class="display-comment" @if ($comment->parent_id != null) style="margin-left:40px;" @endif>--}}
+{{--                                                    <strong>{{ $comment->user->name }}</strong>--}}
+{{--                                                    <p>{{ $comment->body }}</p>--}}
+{{--                                                </div>--}}
+{{--                                                <input data-id="{{$comment->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $comment->status ? 'checked' : '' }}>--}}
 
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                </tr>
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
 
                                 <script>
                                     $(function() {

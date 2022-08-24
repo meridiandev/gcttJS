@@ -243,6 +243,59 @@
                             @enderror
                         </div>
 
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="old_arrow"
+                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка куда ваш ребенок уже ходил') }}</label>
+                            <select id="old_arrow" name="old_arrow" autocomplete="old_arrow"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @foreach($arrows as $arrow)
+                                    <option value="{{ $arrow->name }}" @if(old('arrows') == $arrow->name) selected @endif>{{ $arrow->name }}</option>
+                                @endforeach
+                            </select>
+
+
+                            @error('old_arrow')
+                            <div id="alert-2" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                                <span class="sr-only">Info</span>
+                                <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
+
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="arrows"
+                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка') }}</label>
+                            <select id="arrows" name="arrows" autocomplete="arrows"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @foreach($arrows as $arrow)
+                                    <option value="{{ $arrow->name }}" @if(old('arrows') == $arrow->name) selected @endif>{{ $arrow->name }}</option>
+                                @endforeach
+                            </select>
+
+{{--                            <select name="arrows" class="form-control custom-select">--}}
+{{--                                <option value="">Select Country</option>--}}
+{{--                                @foreach($arrows as $arrow)--}}
+{{--                                    <option value="{{ $arrow->name }}" @if(old('arrow') == $arrow->name || $arrow->name == $student->arrow) selected @endif>{{ $arrow->name }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+
+
+                            @error('arrows')
+                            <div id="alert-2" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
+                                <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                                <span class="sr-only">Info</span>
+                                <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="comments" class="block font-medium text-sm text-gray-700">{{ __('Комментарий к форме (не обязательно)') }}</label>
                             <textarea name="comments" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('comments', '') }}"></textarea>

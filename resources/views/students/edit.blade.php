@@ -138,6 +138,41 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="old_arrow"
+                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка куда ваш ребенок уже ходил') }}</label>
+                            <select id="old_arrow" name="old_arrow" autocomplete="old_arrow"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @foreach($arrows as $arrow)
+{{--                                    <option value="{{ old('old_arrow', $student->old_arrow) }}" @if($student->old_arrow == $arrow->name) selected @endif>@if ($student->old_arrow == $student->old_arrow = '0') Направление не выбрано @else ($student->old_arrow == $arrow->name) selected @endif</option>--}}
+                                    <option value="{{ old('old_arrow', $student->old_arrow) }}" @if($student->old_arrow == $arrow->name) selected @endif>{{ $arrow->name }}</option>
+                                @endforeach
+{{--                                    <option value="{{ old('old_arrow', $student->old_arrow == $student->old_arrow = 0) }}">{{ __('Выберите направлеине') }}</option>--}}
+                            </select>
+
+
+
+                            @error('old_arrow')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="arrows"
+                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка') }}</label>
+                            <select id="arrows" name="arrows" autocomplete="arrows"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @foreach($arrows as $arrow)
+                                    <option value="{{ old('arrows', $student->arrows) }}" @if ($student->arrows == $arrow->name) selected @endif>{{ $arrow->name }}</option>
+                                @endforeach
+                            </select>
+
+
+                            @error('arrows')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="comments" class="block font-medium text-sm text-gray-700">{{ __('Комментарий к форме (не обязательно)') }}</label>
                             <input type="text" name="comments" id="comments" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('comments', $student->comments) }}" />
@@ -161,7 +196,7 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="verified"
+                            <label for="accepted"
                                    class="block text-sm font-medium text-gray-700">{{ __('Заявка в обработке') }}</label>
                             <select id="accepted" name="accepted" autocomplete="accepted"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">

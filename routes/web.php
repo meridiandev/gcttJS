@@ -40,7 +40,7 @@ use App\Http\Livewire\Tapes;
     //Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
     Route::get('/news/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
-    //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
+    Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
     //Route::get('/apply', [\App\Http\Controllers\StudentController::class, 'create'])->name('create');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 

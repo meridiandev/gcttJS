@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\Models\Arrow;
 use App\Models\Student;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -31,7 +33,11 @@ class StudentController extends Controller
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('students.create');
+        $old_arrow = DB::table('arrows')->select('name')->get();
+
+        $arrows = DB::table('arrows')->select('name')->get();
+
+        return view('students.create', compact('arrows', 'old_arrow'));
     }
 
     /**
@@ -43,6 +49,11 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request)
     {
         Student::create($request->validated());
+        //Student::create($request->dd());
+        //$request->dd();
+
+        //$arrows = DB::table('arrows')->select('name')->get();
+        //$arrows = Arrow::pluck('name', 'name')->all();
 
         return redirect()->route('students.index')->with('messages', 'Store OK!');
     }
@@ -70,7 +81,9 @@ class StudentController extends Controller
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('students.edit', compact('student'));
+        $arrows = DB::table('arrows')->select('name')->get();
+
+        return view('students.edit', compact('student', 'arrows'));
     }
 
     /**
@@ -82,11 +95,12 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
+        $arrows = DB::table('arrows')->select('name')->get();
         $student->update($request->validated());
         //Student::update($request->all());
         //$request->dd();
 
-        return redirect()->route('students.index')->with('success', 'UPD OK');
+        return redirect()->route('students.index', compact('arrows'))->with('success', 'UPD OK');
     }
 
     /**

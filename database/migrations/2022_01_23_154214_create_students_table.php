@@ -28,7 +28,9 @@ class CreateStudentsTable extends Migration
             $table->string('parents', 300)->comment('Ф.И.О родителя');
             $table->string('email_address_0', 100)->unique()->comment('Email (электронная почта)');
             $table->string('telephone_mobile', 20)->comment('Номер телефона (родителя)');
+            $table->string('arrows')->comment('Выберите направление из списка');
             $table->string('comments', 600)->default(NULL)->comment('Комментарий к форме (не обязательно)');
+            $table->string('old_arrow')->default('')->comment('Обучался ли ребёнок ранее в IT-кубе? Если да, на каком направлении?');
             $table->boolean('verified')->default(0)->comment('Прошел проверку');
             $table->boolean('accepted')->default(0)->comment('Заявка в обработке');
             $table->timestamps();

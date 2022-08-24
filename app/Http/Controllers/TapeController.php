@@ -85,7 +85,12 @@ class TapeController extends Controller
         return redirect()->route('tapes.index');
     }
 
-    public function show(Tape $tape)
+    public function incrementReadCount(Tape $tape) {
+        $tape->views++;
+        return $this->save();
+    }
+
+    public function show(Tape $tape, Request $request)
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
