@@ -35,7 +35,9 @@ use App\Http\Livewire\Tapes;
 // ITCube42 domain routing
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
+    //Route::get('/join', \App\Http\Livewire\Apply::class);
     Route::get('/news', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
+    //Route::get('/apply', [\App\Http\Controllers\ApplyController::class, 'apply'])->name('apply');
     //Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
     //Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
     Route::get('/news/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
@@ -82,3 +84,17 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
 //Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 //Route::get('tapes', Tapes::class);
+//
+//
+//Route::get('/new-join', function () {
+//    return view('apply.index');
+//});
+
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    return  "all cleared ...";
+
+});

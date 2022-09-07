@@ -81,9 +81,11 @@ class StudentController extends Controller
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $arrows = DB::table('arrows')->select('name')->get();
+        //$arrows = DB::table('arrows')->select('name')->get();
+        $arrows = Student::pluck('old_arrow', 'old_arrow')->all();
+        //$options = Arrow::first();
 
-        return view('students.edit', compact('student', 'arrows'));
+        return view('students.edit', compact('student','arrows'));
     }
 
     /**
@@ -93,14 +95,16 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(UpdateStudentRequest $request, Student $student, Arrow $arrows)
     {
+        //$arrow = Arrow::lists('name', 'id');
+        $options = Arrow::first();
         $arrows = DB::table('arrows')->select('name')->get();
-        $student->update($request->validated());
+        //$student->update($request->validated());
         //Student::update($request->all());
-        //$request->dd();
+        $request->dd();
 
-        return redirect()->route('students.index', compact('arrows'))->with('success', 'UPD OK');
+        return redirect()->route('students.index', compact( 'options'))->with('success', 'UPD OK');
     }
 
     /**

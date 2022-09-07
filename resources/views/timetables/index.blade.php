@@ -1,3 +1,4 @@
+<!-- component -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Блог ИТКуб42 - Новокузнецк') }}</title>
+    <title>{{ config('app.name', 'Расписание занятий ИТКуб42 - Новокузнецк') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -17,76 +18,190 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
 </head>
-
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Расписание педагогов
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-responsive">
-                            <tr>
-                                <th>Название урока</th>
-                                <th>Ф.И.О</th>
-                                <th>Направление:</th>
-                                <th>День недели преподавания</th>
-                                {{-- <th>Время занятия</th>--}}
-                                <th>Группа</th>
-                            </tr>
-                            @foreach ($timetables as $key => $timetable)
-                            <tr>
-                                <td>{{ $timetable->topic }}</td>
-                                <td>{{ $timetable->teacher_full_name }}</td>
-                                <td>{{ $timetable->kvantum_name }}</td>
-                                <td>
-                                    @if($timetable->week_day_1 == '1')
-                                    Пн.
-                                    @elseif($timetable->week_day_1 == '0')
-                                    @endif
-                                    @if($timetable->week_day_2 == '1')
-                                    Вт.
-                                    @elseif($timetable->week_day_2 == '0')
-                                    @endif
-                                    @if($timetable->week_day_3 == '1')
-                                    Ср.
-                                    @elseif($timetable->week_day_3 == '0')
-
-                                    @endif
-                                    @if($timetable->week_day_4 == '1')
-                                    Чт.
-                                    @elseif($timetable->week_day_4 == '0')
-
-                                    @endif
-                                    @if($timetable->week_day_5 == '1')
-                                    Пт.
-                                    @elseif($timetable->week_day_5 == '0')
-
-                                    @endif
-                                    @if($timetable->week_day_6 == '1')
-                                    Сб.
-                                    @elseif($timetable->week_day_6 == '0')
-
-                                    @endif
-                                    @if($timetable->week_day_7 == '1')
-                                    Вс.
-                                    @elseif($timetable->week_day_7 == '0')
-                                    @endif
-                                </td>
-                                {{-- <td>{{ $timetable->week_time }}</td>--}}
-                                <td>{{ $timetable->week_group_id }}</td>
-                                <td>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    </div>
-                </div>
-            </div>
+<body class="bg-gray-200">
+<div class="container mx-auto mt-10">
+    <div class="wrapper bg-white rounded shadow w-full ">
+        <div class="header flex justify-between border-b p-2">
+        <span class="text-lg font-bold">
+          Педагог: Ф.И.О
+        </span>
+{{--            <div class="buttons">--}}
+{{--                <button class="p-1">--}}
+{{--                    <svg width="1em" fill="gray" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>--}}
+{{--                        <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>--}}
+{{--                        <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>--}}
+{{--                    </svg>--}}
+{{--                </button>--}}
+{{--                <button class="p-1">--}}
+{{--                    <svg width="1em" fill="gray" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>--}}
+{{--                        <path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>--}}
+{{--                        <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>--}}
+{{--                    </svg>--}}
+{{--                </button>--}}
+{{--            </div>--}}
         </div>
+        <table class="w-full">
+            <thead>
+            <tr>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Группа</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Group</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Понедельник</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Sun</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Вторник</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Mon</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Среда</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Tue</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Четверг</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Wed</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Пятница</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Thu</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Суббота</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Fri</span>
+                </th>
+                <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                    <span class="xl:block lg:block md:block sm:block hidden">Воскресенье</span>
+                    <span class="xl:hidden lg:hidden md:hidden sm:hidden block">Sat</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center h-20">
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300 ">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">1</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
+                            <div
+                                class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+                            >
+                    <span class="event-name">
+                      Meeting
+                    </span>
+                                <span class="time">
+                      12:00~14:00
+                    </span>
+                            </div>
+                            <div
+                                class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+                            >
+                    <span class="event-name">
+                      Meeting
+                    </span>
+                                <span class="time">
+                      18:00~20:00
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300 ">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">1</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
+                            <div
+                                class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+                            >
+                    <span class="event-name">
+                      Meeting
+                    </span>
+                                <span class="time">
+                      12:00~14:00
+                    </span>
+                            </div>
+                            <div
+                                class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+                            >
+                    <span class="event-name">
+                      Meeting
+                    </span>
+                                <span class="time">
+                      18:00~20:00
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">2</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer"></div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">3</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer"></div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">4</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer"></div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">6</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer"></div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-hidden transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500">7</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
+                            <div
+                                class="event bg-blue-400 text-white rounded p-1 text-sm mb-1"
+                            >
+                    <span class="event-name">
+                      Shopping
+                    </span>
+                                <span class="time">
+                      12:00~14:00
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
+                    <div class="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+{{--                        <div class="top h-5 w-full">--}}
+{{--                            <span class="text-gray-500 text-sm">8</span>--}}
+{{--                        </div>--}}
+                        <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer"></div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    {!! $timetables->render() !!}
+</div>
 </body>
-
 </html>
