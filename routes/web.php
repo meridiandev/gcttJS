@@ -8,6 +8,9 @@ use App\Http\Controllers\ContactUsFormController;
 
 use App\Http\Livewire\Tapes;
 
+
+// Для новых рутов юзаем php artisan route:cache !
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,6 +72,10 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
     Route::resource('documents', \App\Http\Controllers\DocumentController::class);
     Route::resource('settings', \App\Http\Controllers\SettingController::class);
     Route::resource('students', \App\Http\Controllers\StudentController::class);
+
+    Route::get('/file-import',[\App\Http\Controllers\StudentController::class,'importView'])->name('import-view');
+    Route::post('/import',[\App\Http\Controllers\StudentController::class,'import'])->name('import');
+    Route::get('/export-students-xlsx',[\App\Http\Controllers\StudentController::class,'exportStudentsXlsx'])->name('export-students-xlsx');
     //Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
 
     //Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');

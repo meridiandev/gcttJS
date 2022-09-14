@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportStudent;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\Imports\ImportStudent;
 use App\Models\Arrow;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -22,6 +26,10 @@ class StudentController extends Controller
         abort_if(Gate::denies('global_admin_access', 'clerk_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('students.index', ['students' => Student::paginate(10)]);
+    }
+
+    public function importView(Request $request){
+        return view('students.index');
     }
 
     /**
@@ -119,5 +127,19 @@ class StudentController extends Controller
         $student->delete();
 
         return redirect()->route('students.index')->with('success', 'Удалено успешно');
+    }
+
+    public function import(Request $request){
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        Excel::import(new ImportStudent(), $request->file('file')->store('files'));
+        //return redirect()->back();
+        return redirect()->back()->with('success', 'Файл загружен успешно!');
+    }
+
+    public function exportStudentsXlsx(Request $request){
+        abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return Excel::download(new ExportStudent(), 'students.xlsx');
     }
 }
