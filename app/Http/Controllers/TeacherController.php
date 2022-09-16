@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeacherRequest;
+use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class TeacherController extends Controller
      */
     public function store(StoreTeacherRequest $request)
     {
-        Teacher::create($request->all());
+        Teacher::create($request->validated());
 
         return redirect()->route('teachers.index')->with('messages', 'Педагог добавлен успешно');
 
@@ -137,20 +138,22 @@ class TeacherController extends Controller
      * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(UpdateTeacherRequest $request, Teacher $teacher)
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $request->validate([
-            'full_name' => 'required',
-            'images' => 'required|max:300',
-            'rang' => 'required|max:300',
-            'content' => 'required|max:1000',
-            'phone' => 'required',
-            'email' => 'required',
-        ]);
+        $teacher->update($request->validated());
 
-        $teacher->update($request->all());
+//        $request->validate([
+//            'full_name' => 'required',
+//            'images' => 'required|max:300',
+//            'rang' => 'required|max:300',
+//            'content' => 'required|max:1000',
+//            'phone' => 'required',
+//            'email' => 'required',
+//        ]);
+//
+//        $teacher->update($request->all());
 
         return redirect()->route('teachers.index')->with('success', 'OK');
 

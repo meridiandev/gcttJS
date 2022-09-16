@@ -23,13 +23,13 @@
 {{--                        </x-jet-nav-link>--}}
 {{--                    </div>--}}
 {{--                @endcan--}}
-{{--                @can('user_access')--}}
-{{--                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
-{{--                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">--}}
-{{--                            {{ __('Пользователи') }}--}}
-{{--                        </x-jet-nav-link>--}}
-{{--                    </div>--}}
-{{--                @endcan--}}
+                @can('user_access')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                            {{ __('Пользователи') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endcan
 {{--                @can('user_access')--}}
 {{--                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
 {{--                        <x-jet-nav-link href="{{ route('staffs.index') }}" :active="request()->routeIs('staffs.*')">--}}
@@ -53,6 +53,9 @@
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.*')">
                             {{ __('Ученики')  }}
+                            <div class="relative">
+                                <span class="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">3</span>
+                            </div>
                         </x-jet-nav-link>
                     </div>
 

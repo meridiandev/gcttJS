@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Tape;
 use App\Models\User;
 use App\Models\TapeView;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -47,7 +50,7 @@ class BlogController extends Controller
 //        return view('blogs.show')->with('tape', $tape);
 //    }
 
-    public function show($slug){
+    public function show($slug, Request $request){
 
         $tape = Tape::where('slug', $slug)->first();
         //$tape = Tape::with('category', 'user')->withCount('favorites')->find($tape->id);
@@ -61,6 +64,24 @@ class BlogController extends Controller
         // + 1 to views
         $tape->increment('views');
         TapeView::createViewLog($tape);
+
+
+//        if(! Auth::check()){//guest user identified by ip
+//            $cookie_name = (Str::replace('.','',($request->ip())).'-'. $tape->id);
+//        } else {
+//            $cookie_name = (Auth::user()->id.'-'. $tape->id);//logged in user
+//        }
+//        if(Cookie::get($cookie_name) == ''){//check if cookie is set
+//            $cookie = cookie($cookie_name, '1', 60);//set the cookie
+//            //$tape->incrementReadCount();//count the view
+//            return response()
+//                ->view('tapes.show',[
+//                    'tape' => $tape])
+//                ->withCookie($cookie);//store the cookie
+//        } else {
+//            return  view('tapes.show',[
+//                'tape' => $tape]);//this view is not counted
+//        }
 
         return view('blogs.show')->with('tape', $tape);
     }

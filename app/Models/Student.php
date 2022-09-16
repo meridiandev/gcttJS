@@ -23,6 +23,10 @@ class Student extends Model
         'parents',
         'email_address_0',
         'telephone_mobile',
-        'comments'
+        'arrows',
+        'comments',
+        'old_arrow',
+        'verified',
+        'accepted'
     ];
 }

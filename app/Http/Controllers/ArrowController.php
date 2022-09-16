@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreArrowRequest;
+use App\Http\Requests\UpdateArrowRequest;
 use App\Models\Arrow;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -80,21 +80,11 @@ class ArrowController extends Controller
      * @param  \App\Models\Arrow  $arrow
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Arrow $arrow)
+    public function update(UpdateArrowRequest $request, Arrow $arrow)
     {
         abort_if(Gate::denies('global_admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $request->validate([
-            'logo' => 'required|max:300',
-            'name' => 'required|max:200',
-            'content' => 'required|max:2000',
-            'link_program' => 'required|max:1000',
-            'actual' => 'required',
-            'hours' => 'required',
-            'show' => 'required',
-        ]);
-
-        $arrow->update($request->all());
+        $arrow->update($request->validated());
 
         return redirect()->route('arrows.index')->with('success', 'UPD OK');
     }

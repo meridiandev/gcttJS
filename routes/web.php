@@ -8,6 +8,9 @@ use App\Http\Controllers\ContactUsFormController;
 
 use App\Http\Livewire\Tapes;
 
+
+// Для новых рутов юзаем php artisan route:cache !
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,12 +38,14 @@ use App\Http\Livewire\Tapes;
 // ITCube42 domain routing
 //Route::domain('itcube42.ru')->group(function () {
     Route::get('/', \App\Http\Controllers\Itcube42EnterController::class);
+    //Route::get('/join', \App\Http\Livewire\Apply::class);
     Route::get('/news', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
+    //Route::get('/apply', [\App\Http\Controllers\ApplyController::class, 'apply'])->name('apply');
     //Route::get('/blog/search/', [\App\Http\Controllers\BlogController::class, 'search'])->name('search');
     //Route::get('/blog/{tape}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');
     Route::get('/news/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->where('slug', '[A-Za-z0-9_\-]+');
     //Route::resource('/comments', \App\Http\Controllers\CommentController::class);
-    //Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
+    Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
     //Route::get('/apply', [\App\Http\Controllers\StudentController::class, 'create'])->name('create');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
 
@@ -67,6 +72,10 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
     Route::resource('documents', \App\Http\Controllers\DocumentController::class);
     Route::resource('settings', \App\Http\Controllers\SettingController::class);
     Route::resource('students', \App\Http\Controllers\StudentController::class);
+
+    Route::get('/file-import',[\App\Http\Controllers\StudentController::class,'importView'])->name('import-view');
+    Route::post('/import',[\App\Http\Controllers\StudentController::class,'import'])->name('import');
+    Route::get('/export-students-xlsx',[\App\Http\Controllers\StudentController::class,'exportStudentsXlsx'])->name('export-students-xlsx');
     //Route::get('changeStatus', [\App\Http\Controllers\CommentController::class, 'changeStatus']);
 
     //Route::get('enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('index');
@@ -82,3 +91,17 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
 //Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 //Route::get('tapes', Tapes::class);
+//
+//
+//Route::get('/new-join', function () {
+//    return view('apply.index');
+//});
+
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    return  "all cleared ...";
+
+});

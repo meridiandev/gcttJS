@@ -11,6 +11,12 @@
     <meta content="IT-куб.Новокузнецк Федеральная сеть детских Центров цифрового образования" name="description">
     <meta content="IT-куб.Новокузнецк" name="keywords">
 
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+    <link href="{{ asset('assets/apply/apply.css') }}" rel="stylesheet" id="bootstrap-css">
+
 @include('itcube42/loader')
     @include('itcube42.googleAnalytics')
     @include('itcube42.yandexMetrika')
@@ -45,6 +51,7 @@
 {{--@include('itcube42/pricing')--}}
     @include('itcube42/doc')
 @include('itcube42/ask')
+    @include('itcube42/join')
 @include('itcube42/contact')
 
 </main><!-- End #main -->
@@ -53,6 +60,5 @@
 <!-- ======= End footer ====== -->
 @include('itcube42/preloader')
 </body>
-
 </html>
 
