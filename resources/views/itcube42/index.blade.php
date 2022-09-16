@@ -13,6 +13,7 @@
 
 @include('itcube42/loader')
     @include('itcube42.googleAnalytics')
+    @include('itcube42.yandexMetrika')
 
 <!-- =======================================================
     * Template Name: BizLand - v3.0.1

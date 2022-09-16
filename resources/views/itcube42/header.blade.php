@@ -30,7 +30,7 @@
                                         </li>
                 <li><a class="nav-link scrollto" href="#">МЕРОПРИЯТИЯ</a></li>
                 <li><a class="nav-link scrollto" href="#team">ПЕДАГОГИ</a></li>
-                <li><a class="nav-link scrollto" href="http://ctt-meridian.ru/files/raspisanie/texnoleto/%D0%A2%D0%95%D0%A5%D0%9D%D0%9E%D0%9B%D0%95%D0%A2%D0%9E-2022-IT-%D0%9A%D0%A3%D0%91.pdf">РАСПИСАНИЕ</a></li>
+                <li><a class="nav-link scrollto" href="http://ctt-meridian.ru/files/raspisanie/raspisanie_tmp_2022-2023_%D1%81_15.09.2022.pdf">РАСПИСАНИЕ</a></li>
 {{--                <li><a class="nav-link scrollto" href="#faq">Вопрос / Ответ</a></li>--}}
 {{--                <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>--}}
 {{--                <li><a class="nav-link scrollto" href="#team">Команда</a></li>--}}
