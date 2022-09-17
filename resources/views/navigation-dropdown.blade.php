@@ -70,6 +70,11 @@
                         </x-jet-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('schedules.index') }}" :active="request()->routeIs('documents.*')">
+                            {{ __('Расписание')  }}
+                        </x-jet-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.*')">
                             {{ __('Настройки(beta)')  }}
                         </x-jet-nav-link>
