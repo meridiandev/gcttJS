@@ -26,10 +26,12 @@ class Itcube42EnterController extends Controller
         $news_contents = DB::table('tapes')->select('title', 'content_main_page', 'content', 'slug', 'published_slider_status')->limit(10)->get();
         $settings = DB::table('settings')->select('id', 'site_title', 'site_header', 'site_email', 'site_phone', 'site_meridian', 'site_address', 'site_footer', 'site_footer_link')->limit(10)->get();
         $teachers = DB::table('teachers')->select('id', 'full_name', 'images', 'rang', 'content', 'phone', 'email', 'show')->limit(30)->get();
-        $arrows = DB::table('arrows')->select('id', 'logo', 'name', 'content', 'link_program', 'actual', 'show')->limit(10)->get();
-        $documents = DB::table('documents')->select('id', 'name', 'link_document', 'show')->limit(10)->get();
+        $arrows = DB::table('arrows')->select('id', 'logo', 'name', 'content', 'link_program', 'actual', 'show')->limit(30)->get();
+        $documents = DB::table('documents')->select('id', 'name', 'link_document', 'show')->limit(30)->get();
+        $schedules = DB::table('schedules')->select('id', 'name', 'link_schedule', 'show')->limit(30)->get();
 
-        return view('itcube42/index', compact( 'news_contents','teachers_count_show','teachers', 'arrows', 'documents', 'settings'));
+
+        return view('itcube42/index', compact( 'news_contents','teachers_count_show','teachers', 'arrows', 'documents', 'schedules', 'settings'));
     }
 
     public function global_dashboard(){

@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
     Route::resource('teachers', \App\Http\Controllers\TeacherController::class);
     Route::resource('arrows', \App\Http\Controllers\ArrowController::class);
     Route::resource('documents', \App\Http\Controllers\DocumentController::class);
+    Route::resource('schedules', App\Http\Controllers\ScheduleController::class);
     Route::resource('settings', \App\Http\Controllers\SettingController::class);
     Route::resource('students', \App\Http\Controllers\StudentController::class);
 
