@@ -48,6 +48,7 @@ use App\Http\Livewire\Tapes;
     Route::get('/enrollment', [\App\Http\Controllers\EnrollmentController::class, 'index'])->name('enrollment');
     //Route::get('/apply', [\App\Http\Controllers\StudentController::class, 'create'])->name('create');
     //Route::get('/enrollment/status', [\App\Http\Controllers\EnrollmentController::class, 'status'])->name('enrollment');
+Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
 
 //});
 
@@ -66,7 +67,7 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
     //Route::resource('staffs', \App\Http\Controllers\StaffController::class);
     Route::resource('tapes', \App\Http\Controllers\TapeController::class);
     Route::resource('comments', \App\Http\Controllers\CommentController::class);
-    Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
+    //Route::resource('timetables', \App\Http\Controllers\TimetableController::class);
     Route::resource('teachers', \App\Http\Controllers\TeacherController::class);
     Route::resource('arrows', \App\Http\Controllers\ArrowController::class);
     Route::resource('documents', \App\Http\Controllers\DocumentController::class);
