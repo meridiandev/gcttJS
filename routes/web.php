@@ -87,10 +87,22 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
 //        Artisan::call('cache:clear');
 //        return "Cache is cleared";
 //    });
+    Route::get('/clear', function() {
+        Artisan::call('cache:clear');
+        Artisan::call('route:cache');
+        Artisan::call('view:clear');
+        Artisan::call('config:cache');
+        return  "all cleared ...";
+
+    });
 });
 
-//Route::get('/contact', [ContactUsFormController::class, 'createForm']);
-//Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+//Route::get('/fc', function () {
+//    return view('itcube42.futurecode.index');
+//});
+
+Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 //Route::get('tapes', Tapes::class);
 //
@@ -98,12 +110,3 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
 //Route::get('/new-join', function () {
 //    return view('apply.index');
 //});
-
-Route::get('/clear', function() {
-    Artisan::call('cache:clear');
-    Artisan::call('route:cache');
-    Artisan::call('view:clear');
-    Artisan::call('config:cache');
-    return  "all cleared ...";
-
-});

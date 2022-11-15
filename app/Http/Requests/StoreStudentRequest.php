@@ -63,7 +63,7 @@ class StoreStudentRequest extends FormRequest
             'email_address_0.required' => 'Укажите email законного представиться(Родителя)',
             'telephone_mobile.required' => 'Введите действующий номер телефона законного представиться(Родителя)',
             'arrow.required' => '',
-            'comments.regex' => 'Введите комментарий или оставьте пустым',
+            //'comments.regex' => 'Введите комментарий или оставьте пустым',
             'old_arrow' => '',
 
             'inputsCertificate.min' => 'Вы ввели менее 10 символов сертификата ПФДО',

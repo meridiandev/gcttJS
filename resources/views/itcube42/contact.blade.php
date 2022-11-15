@@ -42,7 +42,7 @@
                 <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4717.987550367952!2d87.147487712414!3d53.75399391950948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42d0c0f96c44ee5b%3A0x8af0533b5cba0419!2z0JzQkdCe0KMg0JTQniAi0JPQvtGA0L7QtNGB0LrQvtC5INCU0LLQvtGA0LXRhiDQtNC10YLRgdC60L7Qs9C-ICjRjtC90L7RiNC10YHQutC-0LPQvikg0YLQstC-0YDRh9C10YHRgtCy0LAg0LjQvC4g0J0u0JouINCa0YDRg9C_0YHQutC-0Lki!5e0!3m2!1sru!2sru!4v1604270335548!5m2!1sru!2sru" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
             </div>
 
-{{--            @include('itcube42.contactForm')--}}
+            @include('itcube42.contactForm')
         </div>
 
     </div>

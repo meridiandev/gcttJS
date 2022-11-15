@@ -249,7 +249,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="old_arrow"
-                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка куда ваш ребенок уже ходил') }}</label>
+                                   class="block text-sm font-medium text-gray-700">{{ __('Выберите направление из списка куда ребенок уже ходил') }}</label>
                             <select id="old_arrow" name="old_arrow" autocomplete="old_arrow"
                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 @foreach($arrows as $arrow)

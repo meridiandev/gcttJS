@@ -21,13 +21,13 @@ class ApplyController extends Controller
     {
         $student = $request->session()->get('student');
 
-        return view('apply.create-step-one',compact('student'));
+        return view('apply.create-step-one', compact('student'));
     }
 
     /**
      * Student Request to store step1 info in session
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function studentCreateStepOne(Request $request)
@@ -45,11 +45,11 @@ class ApplyController extends Controller
             'location_education' => 'required',
         ]);
 
-        if(empty($request->session()->get('student'))){
+        if (empty($request->session()->get('student'))) {
             $student = new Student();
             $student->fill($validatedData);
             $request->session()->put('product', $student);
-        }else{
+        } else {
             $student = $request->session()->get('student');
             $student->fill($validatedData);
             $request->session()->put('student', $student);
@@ -67,7 +67,7 @@ class ApplyController extends Controller
     {
         $student = $request->session()->get('student');
 
-        return view('students.create-step-two',compact('student'));
+        return view('students.create-step-two', compact('student'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ApplyController extends Controller
     {
         $student = $request->session()->get('student');
 
-        return view('students.create-step-three',compact('student'));
+        return view('students.create-step-three', compact('student'));
     }
 
     /**

@@ -10,7 +10,7 @@ class Itcube42EnterController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -31,10 +31,11 @@ class Itcube42EnterController extends Controller
         $schedules = DB::table('schedules')->select('id', 'name', 'link_schedule', 'show')->limit(30)->get();
 
 
-        return view('itcube42/index', compact( 'news_contents','teachers_count_show','teachers', 'arrows', 'documents', 'schedules', 'settings'));
+        return view('itcube42/index', compact('news_contents', 'teachers_count_show', 'teachers', 'arrows', 'documents', 'schedules', 'settings'));
     }
 
-    public function global_dashboard(){
+    public function global_dashboard()
+    {
         return view('itcube42/index');
     }
 }
