@@ -55,8 +55,34 @@
             @endif
         </div>
         {{--                    <input type="submit" name="send" value="Submit" class="text-center">--}}
+
+        <div class="form-group mt-4 mb-4">
+            <div class="captcha">
+                <span>{!! captcha_img() !!}</span>
+                <button type="button" class="btn btn-danger" class="reload" id="reload">
+                    &#x21bb;
+                </button>
+            </div>
+        </div>
+        <div class="form-group mb-4">
+            <input id="captcha" type="text" class="form-control" placeholder="Введите правельный ответ с картинки выше" name="captcha">
+        </div>
+
+
         <div class="text-center">
-            <button type="submit">Отправить</button>
+            <button type="submit" class="btn btn-primary">Отправить</button>
         </div>
     </form>
 </div>
+
+<script type="text/javascript">
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>

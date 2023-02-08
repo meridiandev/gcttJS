@@ -12,7 +12,8 @@ class Tapes extends Component
 
     public function render()
     {
-        $this->tapes = Tape::all();
+        //$this->tapes = Tape::all();
+        $this->tapes = Tape::select('id', 'title', 'content', 'content_main_page')->get();
         return view('livewire.tapes');
     }
 
@@ -68,26 +69,30 @@ class Tapes extends Component
             'published_slider_status' => 'required',
         ]);
 
-        Tape::updateOnCreate(['id' => $this->tape_id], [
-            'title' => $this->title,
-            'content' => $this->content,
-            'content_main_page' => $this->content_main_page,
-            //'author' => $this->author,
-            'slug' => $this->slug,
-            'link_images_1' => $this->link_images_1,
-            'link_images_2' => $this->link_images_2,
-            'link_images_3' => $this->link_images_3,
-            'link_images_4' => $this->link_images_4,
-            'link_images_5' => $this->link_images_5,
-            'content_access' => $this->content_access,
-            'organization_show' => $this->organization_show,
-            'published' => $this->published,
-            'published_slider_status' => $this->published_slider_status
-        ]);
+        try {
+            Tape::updateOnCreate(['id' => $this->tape_id], [
+                'title' => $this->title,
+                'content' => $this->content,
+                'content_main_page' => $this->content_main_page,
+                //'author' => $this->author,
+                'slug' => $this->slug,
+                'link_images_1' => $this->link_images_1,
+                'link_images_2' => $this->link_images_2,
+                'link_images_3' => $this->link_images_3,
+                'link_images_4' => $this->link_images_4,
+                'link_images_5' => $this->link_images_5,
+                'content_access' => $this->content_access,
+                'organization_show' => $this->organization_show,
+                'published' => $this->published,
+                'published_slider_status' => $this->published_slider_status
+            ]);
 
-        session()->flash('message', $this->id ? 'Tape Update Successfully.' : 'Tape Created Successfully.');
-        $this->closeModal();
-        $this->resetInputFields();
+            session()->flash('message', $this->id ? 'Tape Update Successfully.' : 'Tape Created Successfully.');
+            $this->closeModal();
+            $this->resetInputFields();
+        } catch (\Exception $ex) {
+                session()->flash('error','Something goes wrong!!');
+            }
     }
 
     public function edit($id)

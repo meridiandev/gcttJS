@@ -13,6 +13,7 @@
                             <div id="newJoinShow" class="collapse" data-bs-parent=".faq-list">
                                 @include('apply/index')
                             </div>
+
                     </li>
                 </ul>
             </div>

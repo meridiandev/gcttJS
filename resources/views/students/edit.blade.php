@@ -184,6 +184,19 @@
 {{--                            @enderror--}}
                         </div>
 
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="shows"
+                                   class="block text-sm font-medium text-gray-700">{{ __('Просмотрено?') }}</label>
+                            <select id="shows" name="shows" autocomplete="shows"
+                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="1">{{ __('Да') }}</option>
+                                <option value="0">{{ __('Нет') }}</option>
+                            </select>
+                            {{--                            @error('accepted')--}}
+                            {{--                            <p class="text-sm text-red-600">{{ $message }}</p>--}}
+                            {{--                            @enderror--}}
+                        </div>
+
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                 {{ __('Редактировать') }}

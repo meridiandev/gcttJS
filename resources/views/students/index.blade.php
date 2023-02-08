@@ -51,6 +51,9 @@
                                         {{ __('Информация') }}
                                     </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        {{ __('Просмотрено') }}
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         {{ __('Действие') }}
                                     </th>
                                 </tr>
@@ -68,13 +71,20 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
-                                            <p class="mt-2 text-sm text-gray-500">
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
+                                            <p class="mt-2 text-sm text-gray-500">
+                                                {{ $student->shows }}
                                             </p>
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('students.show', $student->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2"><button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{ __('Просмотр') }}</button></a>
+                                            <a href="{{ route('students.show', $student->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">
+                                                <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                                    {{ __('Просмотр') }}
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

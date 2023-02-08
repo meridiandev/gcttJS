@@ -30,6 +30,8 @@
     * IT-куб.Новокузнецк
     * Updated: 8.08.2022
     ======================================================== -->
+
+    @livewireStyles
 </head>
 
 <body>
@@ -59,6 +61,8 @@
 @include('itcube42/footer')
 <!-- ======= End footer ====== -->
 @include('itcube42/preloader')
+
+@livewireScripts
 </body>
 </html>
 

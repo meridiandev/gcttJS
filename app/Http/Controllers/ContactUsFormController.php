@@ -19,7 +19,8 @@ class ContactUsFormController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'subject'=>'required',
-            'message' => 'required'
+            'message' => 'required',
+            'captcha' => 'required|captcha'
         ];
 
         $messages = [
@@ -27,7 +28,8 @@ class ContactUsFormController extends Controller
             'email.required' => 'Введите ваш email',
             'phone.required' => 'Введтие телефон для обратной связи',
             'subject.required' => 'Введите тему сообщения (кратко)',
-            'message.required' => 'Введите вашы пожелания/замечания.'
+            'message.required' => 'Введите вашы пожелания/замечания.',
+            'captcha.required' => 'Введите Captcha!'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -43,5 +45,10 @@ class ContactUsFormController extends Controller
 
         //
         return back()->with('success', 'Мы получили ваше сообщение и хотели бы поблагодарить вас за то, что вы написали нам.');
+    }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
     }
 }

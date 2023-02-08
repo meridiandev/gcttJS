@@ -33,6 +33,7 @@ class CreateStudentsTable extends Migration
             $table->string('old_arrow')->default('')->comment('Обучался ли ребёнок ранее в IT-кубе? Если да, на каком направлении?');
             $table->boolean('verified')->default(0)->comment('Прошел проверку');
             $table->boolean('accepted')->default(0)->comment('Заявка в обработке');
+            $table->boolean('shows')->default(0)->comment('Просмотренно?');
             $table->timestamps();
         });
     }

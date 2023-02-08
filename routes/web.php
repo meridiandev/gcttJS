@@ -103,6 +103,7 @@ Route::group(['middleware' => 'auth', 'global_admin_access'], function () {
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+Route::get('/reload-captcha', [ContactUsFormController::class, 'reloadCaptcha']);
 
 //Route::get('tapes', Tapes::class);
 //
