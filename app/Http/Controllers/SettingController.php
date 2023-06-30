@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 
 class SettingController extends Controller
 {
+    public $settingId, $site_title, $site_header, $site_email, $site_phone, $site_meridian, $site_address, $site_footer, $site_footer_link;
     /**
      * Display a listing of the resource.
      *
@@ -73,9 +74,26 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Setting $setting)
+    public function update()
     {
-        //
+        //$this->validate();
+        //try {
+            Setting::whereId($this->settingId)->update([
+                'site_title' => $this->site_title,
+                'site_header' => $this->site_header,
+                'site_email' => $this->site_email,
+                'site_phone' => $this->site_phone,
+                'site_meridian' => $this->site_meridian,
+                'site_address' => $this->site_address,
+                'site_footer' => $this->site_footer,
+                'site_footer_link' => $this->site_footer_link
+            ]);
+            session()->flash('success','Setting Updated Successfully!!');
+            //$this->resetFields();
+            //$this->update = false;
+        //} catch (\Exception $ex) {
+        //    session()->flash('success','Something goes wrong!!');
+        //}
     }
 
     /**

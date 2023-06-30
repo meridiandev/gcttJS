@@ -14,14 +14,6 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-//            'site_title',
-//        'site_header',
-//        'site_email',
-//        'site_phone',
-//        'site_meridian',
-//        'site_address',
-//        'site_footer',
-//        'site_footer_link'
             $table->id();
             $table->string('site_title')->comment('site_title');
             $table->string('site_header')->comment('site_header');

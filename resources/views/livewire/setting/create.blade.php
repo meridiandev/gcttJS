@@ -17,6 +17,14 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+{{--            site_email--}}
+            <div class="form-group mb-3">
+                <label for="site_email">site_email:</label>
+                <input type="text" class="form-control @error('site_email') is-invalid @enderror" id="site_email" placeholder="Enter site_email" wire:model="site_email">
+                @error('site_email')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
 <!--            site_phone-->
             <div class="form-group mb-3">
                 <label for="site_phone">site_phone:</label>
@@ -57,13 +65,6 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-<!--            <div class="form-group mb-3">-->
-<!--                <label for="description">Description:</label>-->
-<!--                <textarea class="form-control @error('description') is-invalid @enderror" id="description" wire:model="description" placeholder="Enter Description"></textarea>-->
-<!--                @error('description')-->
-<!--                <span class="text-danger">{{ $message }}</span>-->
-<!--                @enderror-->
-<!--            </div>-->
             <div class="d-grid gap-2">
                 <button wire:click.prevent="storeSetting()" class="btn btn-success btn-block">Save</button>
                 <button wire:click.prevent="cancelSetting()" class="btn btn-secondary btn-block">Cancel</button>

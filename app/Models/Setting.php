@@ -16,6 +16,6 @@ class Setting extends Model
         'site_meridian',
         'site_address',
         'site_footer',
-        'site_footer_link'
+        'site_footer_link',
     ];
 }
