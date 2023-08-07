@@ -60,8 +60,12 @@ class Setting extends Component
 
     public function render()
     {
-        $this->settings = Setting::select('id', 'site_title', 'site_header', 'site_email', 'site_phone', 'site_meridian', 'site_address', 'site_footer', 'site_footer_link')->get();
-        return view('livewire.setting');
+        return view('livewire.setting', [
+            'settings' => Settings::all()
+            ]);
+
+        //$this->settings = Setting::select('id', 'site_title', 'site_header', 'site_email', 'site_phone', 'site_meridian', 'site_address', 'site_footer', 'site_footer_link')->get();
+        //return view('livewire.setting');
     }
 
     /**
